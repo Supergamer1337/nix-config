@@ -3,19 +3,6 @@
 
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
 	let
-		systemSettings = {
-			system = "x86_64-linux";
-			hostname = "roctim-nix";
-			timezone = "Europe/Stockholm";
-			locale = "en_US.UTF-8";
-		};
-
-		userSettings = {
-			username = "felbjar";
-			name = "Felix Bjerhem Aronsson";
-		};
-
-
 		lib = nixpkgs.lib;
 		system = "x86_64-linux";
 		pkgs = nixpkgs.legacyPackages.${system};
@@ -23,22 +10,14 @@
 		homeConfigurations = {
 			felbjar = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
-				modules = [ ./home.nix ];
-				extraSpecialArgs = {
-					inherit systemSettings;
-					inherit userSettings;
-				}
+				modules = [ ./users/felbjar/home.nix ];
 			};
 		};
 
 		nixosConfigurations = {
 			roctim-nix = lib.nixosSystem {
-				system = systemSettings.system;
+				inherit system;
 				modules = [ ./configuration.nix ];
-				extraSpecialArgs = {
-					inherit systemSettings;
-					inherit userSettings;
-				}
 			};
 		};
 	};

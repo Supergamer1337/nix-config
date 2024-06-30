@@ -1,8 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, profiles, ... }:
 
 {
   imports = [
     ./desktops/gnome/module.nix
+
+    # Install work packages
+    ({pkgs, profiles, ...}:{
+      home.packages = if builtins.elem "work" profiles then with pkgs; [
+        jetbrains.pycharm-professional
+      ] else [];
+    })
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -16,6 +23,7 @@
   home.packages = with pkgs; [
     neovim 
     brave
+    slack
   ];
 
   programs.vscode = {
@@ -38,6 +46,29 @@
       window.startup_mode = "Maximized";
     };
   };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -l";
+    };
+
+    history = {
+      size = 10000;
+      path = "${config.xdg.dataHome}/zsh/history";
+    };
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "robbyrussell";
+    };
+  };
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -21,9 +21,16 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    # Essentials
     neovim 
     brave
+
+    # Communication
     slack
+    whatsapp-for-linux
+    caprine-bin
+    discord
+    signal-desktop
   ];
 
   programs.vscode = {

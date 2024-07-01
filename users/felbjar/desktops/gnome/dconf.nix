@@ -6,7 +6,7 @@ with lib.hm.gvariant;
 {
   dconf.settings = {
     "org/gnome/control-center" = {
-      last-panel = "system";
+      last-panel = "multitasking";
       window-state = mkTuple [ 980 640 false ];
     };
 
@@ -33,11 +33,6 @@ with lib.hm.gvariant;
       translate = true;
     };
 
-    "org/gnome/desktop/input-sources" = {
-      sources = [ (mkTuple [ "xkb" "se+us" ]) ];
-      xkb-options = [ "terminate:ctrl_alt_bksp" ];
-    };
-
     "org/gnome/desktop/background" = {
       picture-uri = "/home/felbjar/.nix-config/resources/wallpapers/candy-river-land.png";
       picture-uri-dark = "/home/felbjar/.nix-config/resources/wallpapers/candy-river-land.png";
@@ -45,14 +40,9 @@ with lib.hm.gvariant;
       secondary-color = "#2f302f";
     };
 
-
-    "org/gnome/desktop/screensaver" = {
-      color-shading-type = "solid";
-      picture-options = "zoom";
-      picture-uri = "/home/felbjar/.nix-config/resources/wallpapers/candy-river-land.png";
-      picture-uri-dark = "/home/felbjar/.nix-config/resources/wallpapers/candy-river-land.png";
-      primary-color = "#3a4ba0";
-      secondary-color = "#2f302f";
+    "org/gnome/desktop/input-sources" = {
+      sources = [ (mkTuple [ "xkb" "se+us" ]) ];
+      xkb-options = [ "terminate:ctrl_alt_bksp" ];
     };
 
     "org/gnome/desktop/interface" = {
@@ -61,8 +51,20 @@ with lib.hm.gvariant;
       toolkit-accessibility = false;
     };
 
-    "org/gnome/desktop/peripherals/mouse" = {
-      natural-scroll = true;
+    "org/gnome/desktop/notifications" = {
+      application-children = [ "brave-browser" "org-gnome-evolution-alarm-notify" ];
+    };
+
+    "org/gnome/desktop/notifications/application/brave-browser" = {
+      application-id = "brave-browser.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/org-gnome-evolution-alarm-notify" = {
+      application-id = "org.gnome.Evolution-alarm-notify.desktop";
+    };
+
+    "org/gnome/desktop/peripherals/keyboard" = {
+      numlock-state = true;
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -72,6 +74,15 @@ with lib.hm.gvariant;
     "org/gnome/desktop/privacy" = {
       old-files-age = mkUint32 30;
       recent-files-max-age = -1;
+    };
+
+    "org/gnome/desktop/screensaver" = {
+      color-shading-type = "solid";
+      picture-options = "zoom";
+      picture-uri = "/home/felbjar/.nix-config/resources/wallpapers/candy-river-land.png";
+      picture-uri-dark = "/home/felbjar/.nix-config/resources/wallpapers/candy-river-land.png";
+      primary-color = "#3a4ba0";
+      secondary-color = "#2f302f";
     };
 
     "org/gnome/desktop/search-providers" = {
@@ -92,6 +103,7 @@ with lib.hm.gvariant;
 
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
+      workspaces-only-on-primary = true;
     };
 
     "org/gnome/nautilus/preferences" = {
@@ -143,6 +155,19 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/world-clocks" = {
       locations = [];
+    };
+
+    "org/gtk/gtk4/settings/file-chooser" = {
+      date-format = "regular";
+      location-mode = "path-bar";
+      show-hidden = false;
+      sidebar-width = 140;
+      sort-column = "name";
+      sort-directories-first = true;
+      sort-order = "ascending";
+      type-format = "category";
+      view-type = "list";
+      window-size = mkTuple [ 859 372 ];
     };
 
   };

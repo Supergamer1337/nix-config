@@ -1,12 +1,13 @@
 {
 	description = "Flake of SuperGamer1337";
 
-	outputs = inputs@{ self, nixpkgs, home-manager, nixpkgs-python, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, python36NixPackages, ... }:
 	let
 		profiles = ["work"]; # "work"
 		lib = nixpkgs.lib;
 		system = "x86_64-linux";
 		pkgs = nixpkgs.legacyPackages.${system};
+		python36NixPkgs = python36NixPackages.legacyPackages.${system};
 	in {
 		homeConfigurations = {
 			felbjar = home-manager.lib.homeManagerConfiguration {
@@ -24,7 +25,7 @@
 				modules = [ ./configuration.nix ];
 				specialArgs = {
 					inherit profiles;
-					inherit nixpkgs-python;
+					inherit python36NixPkgs;
 				};
 			};
 		};
@@ -36,7 +37,6 @@
 			url = "github:nix-community/home-manager/master";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-
-		nixpkgs-python.url = "github:cachix/nixpkgs-python";
+		python36NixPackages.url = "nixpkgs/407f8825b321617a38b86a4d9be11fd76d513da2";
 	};
 }

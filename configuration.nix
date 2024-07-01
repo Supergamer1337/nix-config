@@ -2,18 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, profiles, nixpkgs-python, ... }:
+{ config, pkgs, profiles, python36NixPkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./gnome.nix
-      # ({profiles, pythonPkgs, ...}: {
-      #   environment.systemPackages = if builtins.elem "work" profiles then [
-      #     nixpkgs-python.packages.x86_64-linux."3.6"
-      #   ] else [];
-      # })
+      ({profiles, pythonPkgs, ...}: {
+        environment.systemPackages = if builtins.elem "work" profiles then [
+          python36NixPkgs.python36
+        ] else [];
+      })
     ];
 
   # Bootloader.

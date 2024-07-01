@@ -76,6 +76,18 @@
     };
   };
 
+  # Setup SSH for work
+  
+  programs.ssh = if builtins.elem "work" profiles then {
+    enable = true;
+    matchBlocks = {
+      "github-roctim" = {
+        hostname = "github.com";
+        identityFile = "~/.ssh/roctim_git";
+      };
+    };
+  } else {};
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

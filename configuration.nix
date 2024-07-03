@@ -9,11 +9,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./gnome.nix
-      ({profiles, pythonPkgs, ...}: {
-        environment.systemPackages = if builtins.elem "work" profiles then [
-          python36NixPkgs.python36
-        ] else [];
-      })
     ];
 
   # Bootloader.
@@ -73,7 +68,7 @@
   users.users.felbjar = {
     isNormalUser = true;
     description = "Felix Bjerhem Aronsson";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
   # Allow unfree packages
@@ -83,9 +78,13 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
+  programs.direnv.enable = true;
+
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   ];
+
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

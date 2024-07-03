@@ -8,6 +8,7 @@
     ({pkgs, profiles, ...}:{
       home.packages = if builtins.elem "work" profiles then with pkgs; [
         jetbrains.pycharm-professional
+	      dbeaver-bin
       ] else [];
     })
   ];
@@ -71,7 +72,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = [ "git" "direnv" ];
       theme = "robbyrussell";
     };
   };

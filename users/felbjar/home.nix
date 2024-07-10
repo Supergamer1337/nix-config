@@ -63,6 +63,8 @@
 
     shellAliases = {
       ll = "ls -l";
+      ssh-roctim-prod = "ssh root@167.99.171.160";
+      ssh-roctim-beta = "ssh root@165.227.3.78";
     };
 
     history = {

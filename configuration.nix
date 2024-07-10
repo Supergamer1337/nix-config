@@ -19,6 +19,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.extraHosts = ''
+	127.0.0.1 local-roctimsim.com
+  '';
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
@@ -85,6 +88,13 @@
   ];
 
   virtualisation.docker.enable = true;
+
+  # Do automatic cleanup
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

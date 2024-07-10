@@ -25,6 +25,10 @@
     # Essentials
     neovim 
     brave
+    fastfetch
+
+    # Movies and stuff
+    plex-media-player
 
     # Communication
     slack

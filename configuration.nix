@@ -12,7 +12,12 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub = {
+	enable = true;
+	useOSProber = true;
+	device = "nodev";
+	efiSupport = true;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "roctim-nix"; # Define your hostname.

@@ -81,6 +81,10 @@
       plugins = [ "git" "direnv" ];
       theme = "robbyrussell";
     };
+
+    initExtra = ''
+	fastfetch
+    '';
   };
 
   # Setup SSH for work
@@ -93,12 +97,14 @@
         identityFile = "~/.ssh/roctim_git";
       };
 
-      "github" = {
+      "github.com" = {
       	hostname = "github.com";
 	identityFile = "~/.ssh/id_ed25519";
       };
     };
-  } else {};
+  } else {
+    enable = true;
+  };
 
 
   # Let Home Manager install and manage itself.

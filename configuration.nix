@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, profiles, python36NixPkgs, ... }:
+{ config, pkgs, profiles, python36NixPkgs, userSettings, ... }:
 
 {
   imports =
@@ -68,9 +68,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.felbjar = {
+  users.users.${userSettings.username} = {
     isNormalUser = true;
-    description = "Felix Bjerhem Aronsson";
+    description = userSettings.name;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 

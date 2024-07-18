@@ -1,6 +1,9 @@
-{ config, pkgs, profiles, ... }:
+{ config, pkgs, profiles, userSettings, ... }:
 
 {
+  home.username = userSettings.username;
+  home.homeDirectory = "/home/" + userSettings.username;
+
   imports = [
     ./desktops/gnome/module.nix
 
@@ -14,9 +17,6 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  home.username = "felbjar";
-  home.homeDirectory = "/home/felbjar";
 
 
   # The home.packages option allows you to install Nix packages into your
@@ -40,16 +40,16 @@
 
   programs.vscode = {
   	enable = true;
-	  extensions = with pkgs.vscode-extensions; [
-      vscodevim.vim
-      bbenoist.nix
-    ];
+	extensions = with pkgs.vscode-extensions; [
+      		vscodevim.vim
+      		bbenoist.nix
+    	];
   };
 
   programs.git = {
     enable = true;
     userEmail = "felix.b.aronsson@gmail.com";
-    userName = "Felix Bjerhem Aronsson";
+    userName = userSettings.name;
   };
 
   programs.alacritty = {

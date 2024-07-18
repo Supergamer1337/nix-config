@@ -3,18 +3,24 @@
 
 	outputs = inputs@{ self, nixpkgs, home-manager, python36NixPackages, ... }:
 	let
-		profiles = ["work"]; # "work"
+		profiles = ["work"]; # Available are "work"
 		lib = nixpkgs.lib;
 		system = "x86_64-linux";
 		pkgs = nixpkgs.legacyPackages.${system};
 		python36NixPkgs = python36NixPackages.legacyPackages.${system};
+
+		userSettings = {
+			username = "felbjar"; # User account name
+			name = "Felix Bjerhem Aronsson"; # Identifier/real name
+		};
 	in {
 		homeConfigurations = {
-			felbjar = home-manager.lib.homeManagerConfiguration {
+			user = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
-				modules = [ ./users/felbjar/home.nix ];
+				modules = [ ./user/home.nix ];
 				extraSpecialArgs = {
 					inherit profiles;
+					inherit userSettings;
 				};
 			};
 		};
@@ -26,6 +32,7 @@
 				specialArgs = {
 					inherit profiles;
 					inherit python36NixPkgs;
+					inherit userSettings;
 				};
 			};
 		};

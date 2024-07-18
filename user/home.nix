@@ -1,4 +1,4 @@
-{ config, pkgs, profiles, userSettings, ... }:
+{ config, pkgs, profiles, userSettings, systemSettings, ... }:
 
 {
   home.username = userSettings.username;
@@ -26,9 +26,6 @@
     neovim 
     brave
     fastfetch
-
-    # Movies and stuff
-    plex-media-player
 
     # Communication
     slack

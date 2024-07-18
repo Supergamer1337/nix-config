@@ -3,16 +3,23 @@
 
 	outputs = inputs@{ self, nixpkgs, home-manager, python36NixPackages, ... }:
 	let
+		lib = nixpkgs.lib; # Needed for... Something.
+
 		profiles = ["work"]; # Available are "work"
-		lib = nixpkgs.lib;
-		system = "x86_64-linux";
-		pkgs = nixpkgs.legacyPackages.${system};
-		python36NixPkgs = python36NixPackages.legacyPackages.${system};
+
+		systemSettings = {
+			system = "x86_64-linux";
+			hostname = "roctim-nix";	
+		};
 
 		userSettings = {
 			username = "felbjar"; # User account name
 			name = "Felix Bjerhem Aronsson"; # Identifier/real name
 		};
+
+		pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+		python36NixPkgs = python36NixPackages.legacyPackages.${systemSettings.system};
+
 	in {
 		homeConfigurations = {
 			user = home-manager.lib.homeManagerConfiguration {
@@ -21,18 +28,20 @@
 				extraSpecialArgs = {
 					inherit profiles;
 					inherit userSettings;
+					inherit systemSettings;
 				};
 			};
 		};
 
 		nixosConfigurations = {
 			roctim-nix = lib.nixosSystem {
-				inherit system;
+				system = systemSettings.system;
 				modules = [ ./configuration.nix ];
 				specialArgs = {
 					inherit profiles;
 					inherit python36NixPkgs;
 					inherit userSettings;
+					inherit systemSettings;
 				};
 			};
 		};

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, profiles, python36NixPkgs, userSettings, ... }:
+{ config, pkgs, profiles, python36NixPkgs, userSettings, systemSettings, ... }:
 
 {
   imports =
@@ -20,7 +20,7 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "roctim-nix"; # Define your hostname.
+  networking.hostName = systemSettings.system; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;

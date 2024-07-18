@@ -92,6 +92,11 @@
         hostname = "github.com";
         identityFile = "~/.ssh/roctim_git";
       };
+
+      "github" = {
+      	hostname = "github.com";
+	identityFile = "~/.ssh/id_ed25519";
+      };
     };
   } else {};
 

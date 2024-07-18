@@ -92,6 +92,13 @@
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   ];
 
+  # Fonts
+  fonts.fonts = with pkgs; [
+      corefonts
+  ];
+
+  services.flatpak.enable = true;
+
   virtualisation.docker.enable = true;
 
   # Do automatic cleanup

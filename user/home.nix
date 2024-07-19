@@ -31,7 +31,7 @@
     slack
     whatsapp-for-linux
     caprine-bin
-    discord
+    vesktop # Discord, modded.
     signal-desktop
   ];
 

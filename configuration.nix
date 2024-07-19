@@ -20,6 +20,13 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Customize bootloader
+  boot.loader.grub2-theme = {
+	enable = true;
+	theme = "tela";
+	footer = true;
+  };
+
   networking.hostName = systemSettings.hostname; # Define your hostname.
 
   # Enable networking

@@ -1,7 +1,7 @@
 {
 	description = "Flake of SuperGamer1337";
 
-	outputs = inputs@{ self, nixpkgs, home-manager, python36NixPackages, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, python36NixPackages, grub2-themes, ... }:
 	let
 		lib = nixpkgs.lib; # Needed for... Something.
 
@@ -36,7 +36,10 @@
 		nixosConfigurations = {
 			${systemSettings.hostname} = lib.nixosSystem {
 				system = systemSettings.system;
-				modules = [ ./configuration.nix ];
+				modules = [ 
+					./configuration.nix
+					grub2-themes.nixosModules.default
+				];
 				specialArgs = {
 					inherit profiles;
 					inherit python36NixPkgs;
@@ -53,6 +56,8 @@
 			url = "github:nix-community/home-manager/master";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		grub2-themes.url = "github:vinceliuice/grub2-themes";
 		python36NixPackages.url = "nixpkgs/407f8825b321617a38b86a4d9be11fd76d513da2";
 	};
 }

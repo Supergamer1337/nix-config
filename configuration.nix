@@ -20,7 +20,7 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = systemSettings.system; # Define your hostname.
+  networking.hostName = systemSettings.hostname; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;

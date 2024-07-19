@@ -34,7 +34,7 @@
 		};
 
 		nixosConfigurations = {
-			roctim-nix = lib.nixosSystem {
+			${systemSettings.hostname} = lib.nixosSystem {
 				system = systemSettings.system;
 				modules = [ ./configuration.nix ];
 				specialArgs = {

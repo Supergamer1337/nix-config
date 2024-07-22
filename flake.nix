@@ -34,7 +34,7 @@
 		};
 
 		nixosConfigurations = {
-			${systemSettings.hostname} = lib.nixosSystem {
+			system = lib.nixosSystem {
 				system = systemSettings.system;
 				modules = [ 
 					./configuration.nix

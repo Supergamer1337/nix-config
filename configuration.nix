@@ -9,6 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./gnome.nix
+
+      # Custom scripts
+      ./system/scripts/super/super.nix
     ];
 
   # Bootloader.
@@ -103,6 +106,11 @@
   fonts.fonts = with pkgs; [
       corefonts
   ];
+
+  # Set environment variables
+  environment.variables = {
+    NIX_CONFIG_DIR = userSettings.nixFilesDir;
+  };
 
   services.flatpak.enable = true;
 

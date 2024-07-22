@@ -1,16 +1,27 @@
-DIRECTORY=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+function sync_user() {
+    home-manager switch --flake $HOME/.nix-config#user;
+}
 
+function sync_system() {
+    sudo nixos-rebuild switch --flake $HOME/.nix-config#system;
+}
+
+
+# Structure of running the correct function
 if [ "$1" = "sync" ]; then
     if [ "$#" = 1 ]; then
-        $DIRECTORY/helpers/sync.sh;
+        sync_system
+        sync_user
         exit 0;
     elif [ "$2" = "user" ]; then
-        $DIRECTORY/helpers/sync-user.sh;
+        sync_user
         exit 0;
     elif [ "$2" = "system" ]; then
-        $DIRECTORY/helpers/sync-system.sh;
+        sync_system
         exit 0;
     else
         echo "Please pass a 'system' or 'user' if supplying a second argument"
     fi
+else
+    echo "No arguments where supplied."
 fi

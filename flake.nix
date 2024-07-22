@@ -15,7 +15,6 @@
 		userSettings = {
 			username = "felbjar"; # User account name
 			name = "Felix Bjerhem Aronsson"; # Identifier/real name
-			nixFilesDir = "~/.nix-config";
 		};
 
 		pkgs = nixpkgs.legacyPackages.${systemSettings.system};

@@ -107,11 +107,6 @@
       corefonts
   ];
 
-  # Set environment variables
-  environment.variables = {
-    NIX_CONFIG_DIR = userSettings.nixFilesDir;
-  };
-
   services.flatpak.enable = true;
 
   virtualisation.docker.enable = true;

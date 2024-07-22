@@ -18,7 +18,7 @@ sudo nixos-generate-config --show-hardware-config > $NIX_CONFIG_DIR/hardware-con
 # Termporarily add the hardware configuration to git so that it can be used to build the system
 cd $NIX_CONFIG_DIR
 git add -f hardware-configuration.nix
-cd ..
+cd ~
 
 # Rebuild and switch to the new system 
 sudo nixos-rebuild switch --flake $NIX_CONFIG_DIR#system
@@ -29,7 +29,7 @@ nix run home-manager/master --extra-experimental-features nix-command --extra-ex
 # Remove the hardware configuration from git
 cd $NIX_CONFIG_DIR
 git restore --cached hardware-configuration.nix
-cd ..
+cd ~
 
 echo "Installation complete!"
 echo "Rebooting in"

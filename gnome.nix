@@ -9,9 +9,9 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "se";
-    xkbVariant = "us";
+    variant = "us";
   };
 
   # Install relevant extensions
@@ -25,17 +25,20 @@
     gnome-photos
     gnome-tour
     gedit
-  ]) ++ (with pkgs.gnome; [
+  ]) ++ (with pkgs; [
+    # Top level Gnome packages
     cheese
-    gnome-music
     epiphany
     geary # email reader
     evince # document viewer
-    gnome-characters
     totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
+
+    # Gnome namespaced packages
+    gnome.gnome-music
+    gnome.gnome-characters
+    gnome.tali # poker game
+    gnome.iagno # go game
+    gnome.hitori # sudoku game
+    gnome.atomix # puzzle game
   ]);
 }

@@ -99,12 +99,12 @@
   programs.direnv.enable = true;
 
   environment.systemPackages = with pkgs; [
-      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   ];
 
   # Fonts
-  fonts.fonts = with pkgs; [
-      corefonts
+  fonts.packages = with pkgs; [
+    corefonts
   ];
 
   services.flatpak.enable = true;

@@ -107,8 +107,6 @@
     corefonts
   ];
 
-  services.flatpak.enable = true;
-
   virtualisation.docker.enable = true;
 
   # Do automatic cleanup

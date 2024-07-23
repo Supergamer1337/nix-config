@@ -34,17 +34,14 @@
     vesktop # Discord, modded.
     signal-desktop
 
-    # LSPs
-    nil # Nix LSP
-  ];
+    # Media
+    plex-desktop
 
-  programs.vscode = {
-  	enable = true;
-	extensions = with pkgs.vscode-extensions; [
-      		vscodevim.vim
-		jnoortheen.nix-ide
-    	];
-  };
+    # Development
+    vscode-fhs
+    nil # Nix LSP
+    nixd # Alternative LSP
+  ];
 
   programs.git = {
     enable = true;
@@ -105,7 +102,6 @@
   } else {
     enable = true;
   };
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

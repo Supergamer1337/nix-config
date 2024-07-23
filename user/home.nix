@@ -33,13 +33,16 @@
     caprine-bin
     vesktop # Discord, modded.
     signal-desktop
+
+    # LSPs
+    nil # Nix LSP
   ];
 
   programs.vscode = {
   	enable = true;
 	extensions = with pkgs.vscode-extensions; [
       		vscodevim.vim
-      		bbenoist.nix
+		jnoortheen.nix-ide
     	];
   };
 

@@ -10,6 +10,7 @@
 		systemSettings = {
 			system = "x86_64-linux";
 			hostname = "roctim-nix";	
+			configDir = "/home/${userSettings.username}/.nix-config";
 		};
 
 		userSettings = {
@@ -22,7 +23,7 @@
 
 	in {
 		homeConfigurations = {
-			user = home-manager.lib.homeManagerConfiguration {
+			${userSettings.username} = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
 				modules = [ ./user/home.nix ];
 				extraSpecialArgs = {
@@ -34,7 +35,7 @@
 		};
 
 		nixosConfigurations = {
-			system = lib.nixosSystem {
+			${systemSettings.hostname} = lib.nixosSystem {
 				system = systemSettings.system;
 				modules = [ 
 					./configuration.nix

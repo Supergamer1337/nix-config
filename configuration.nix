@@ -9,9 +9,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./gnome.nix
-
-      # Custom scripts
-      ./system/scripts/super/super.nix
     ];
 
   # Bootloader.
@@ -98,6 +95,15 @@
 
   programs.direnv.enable = true;
 
+  programs.nh = {
+    enable = true;
+    flake = systemSettings.configDir; # Location of the configuration flake
+
+    # Automatic cleanup, essentially nix.gc
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 7d --keep 3";
+  };
+
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   ];
@@ -114,13 +120,6 @@
   };
 
   virtualisation.docker.enable = true;
-
-  # Do automatic cleanup
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

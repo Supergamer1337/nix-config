@@ -107,6 +107,12 @@
     corefonts
   ];
 
+  # Some apps (e.g. Plex) needs this to login/click on links.
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+  };
+
   virtualisation.docker.enable = true;
 
   # Do automatic cleanup

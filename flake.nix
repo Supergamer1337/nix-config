@@ -1,7 +1,7 @@
 {
 	description = "Flake of SuperGamer1337";
 
-	outputs = inputs@{ self, nixpkgs, home-manager, python36NixPackages, grub2-themes, ... }:
+	outputs = inputs@{ nixpkgs, home-manager, ... }:
 	let
 		lib = nixpkgs.lib; # Needed for... Something.
 
@@ -18,22 +18,21 @@
 			name = "Felix Bjerhem Aronsson"; # Identifier/real name
 		};
 
-		pkgs = nixpkgs.legacyPackages.${systemSettings.system};
-		python36NixPkgs = python36NixPackages.legacyPackages.${systemSettings.system};
+		pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+		system = "x86_64-linux";
 
 	in {
 		nixosConfigurations = {
 			roctim-nix = lib.nixosSystem {
-				system = systemSettings.system;
+				inherit system;
 				modules = [ 
 					./hosts/roctim-nix/configuration.nix
-					grub2-themes.nixosModules.default
+					inputs.grub2-themes.nixosModules.default
 				];
 				specialArgs = {
-					inherit profiles;
-					inherit python36NixPkgs;
-					inherit userSettings;
-					inherit systemSettings;
+					inherit pkgs;
+					inherit lib;
+					inherit inputs;
 				};
 			};
 		};
@@ -61,6 +60,5 @@
 		};
 
 		grub2-themes.url = "github:vinceliuice/grub2-themes";
-		python36NixPackages.url = "nixpkgs/407f8825b321617a38b86a4d9be11fd76d513da2";
 	};
 }

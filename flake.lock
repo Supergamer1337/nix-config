@@ -70,27 +70,11 @@
         "type": "indirect"
       }
     },
-    "python36NixPackages": {
-      "locked": {
-        "lastModified": 1634763423,
-        "narHash": "sha256-4vvyW8+iXLuOr50KeE9WR/YlODvHal6n9a2sDOlh7dI=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "407f8825b321617a38b86a4d9be11fd76d513da2",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "407f8825b321617a38b86a4d9be11fd76d513da2",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "grub2-themes": "grub2-themes",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2",
-        "python36NixPackages": "python36NixPackages"
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

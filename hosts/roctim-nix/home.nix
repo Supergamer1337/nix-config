@@ -1,8 +1,10 @@
-{ config, pkgs, profiles, userSettings, systemSettings, ... }:
-
+{ pkgs, lib, config, profiles, userSettings,  ... }:
+let
+  username = "felbjar";
+in
 {
-  home.username = userSettings.username;
-  home.homeDirectory = "/home/" + userSettings.username;
+  home.username = username;
+  home.homeDirectory = "/home/" + username;
 
   imports = [
     ../../home-modules/gnome/default.nix

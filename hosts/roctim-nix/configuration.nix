@@ -4,7 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../nixos-modules/default.nix
+      ../../modules/system
     ];
 
   # System settings 

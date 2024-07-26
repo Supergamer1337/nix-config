@@ -5,7 +5,7 @@
     ./essential
     ./services
     ./users
-    ./desktops
+    ./desktop
     ./fonts.nix
     ./programs.nix
   ];

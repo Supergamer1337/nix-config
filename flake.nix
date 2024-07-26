@@ -42,7 +42,7 @@
 		homeConfigurations = {
 			felbjar = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
-				modules = [ ./hosts/roctim-nix/home.nix ]; 
+				modules = [ ./home.nix ]; 
 				extraSpecialArgs = {
 					inherit profiles;
 					inherit userSettings;

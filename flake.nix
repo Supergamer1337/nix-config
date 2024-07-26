@@ -22,28 +22,30 @@
 		python36NixPkgs = python36NixPackages.legacyPackages.${systemSettings.system};
 
 	in {
-		homeConfigurations = {
-			${userSettings.username} = home-manager.lib.homeManagerConfiguration {
-				inherit pkgs;
-				modules = [ ./user/home.nix ];
-				extraSpecialArgs = {
+		nixosConfigurations = {
+			roctim-nix = lib.nixosSystem {
+				system = systemSettings.system;
+				modules = [ 
+					./hosts/roctim-nix/configuration.nix
+					grub2-themes.nixosModules.default
+				];
+				specialArgs = {
 					inherit profiles;
+					inherit python36NixPkgs;
 					inherit userSettings;
 					inherit systemSettings;
 				};
 			};
 		};
 
-		nixosConfigurations = {
-			${systemSettings.hostname} = lib.nixosSystem {
-				system = systemSettings.system;
-				modules = [ 
-					./configuration.nix
-					grub2-themes.nixosModules.default
-				];
-				specialArgs = {
+		# TODO: This should probably be replaced with a NixOS module
+		# instead of being a standalone home-manager install.
+		homeConfigurations = {
+			felbjar = home-manager.lib.homeManagerConfiguration {
+				inherit pkgs;
+				modules = [ ./hosts/roctim-nix/home.nix ]; 
+				extraSpecialArgs = {
 					inherit profiles;
-					inherit python36NixPkgs;
 					inherit userSettings;
 					inherit systemSettings;
 				};

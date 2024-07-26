@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/" + userSettings.username;
 
   imports = [
-    ./desktops/gnome/module.nix
+    ../../home-modules/gnome/default.nix
 
     # Install work packages
     ({pkgs, profiles, ...}:{

@@ -25,5 +25,10 @@
         (lib.mkIf (config.profiles.dev.enable && config.virtualisation.docker.enable) [ "docker" ])
       ];
     };
+
+    # Change default shell
+    users.defaultUserShell = pkgs.zsh;
+    programs.zsh.enable = true;
+
   };
 }

@@ -20,11 +20,18 @@
       variant = "us";
     };
 
+    # Some apps (e.g. Plex) needs this to login/click on links.
+    xdg.portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+    };
+
     # Install relevant extensions
     environment.systemPackages = with pkgs.gnomeExtensions; [
       blur-my-shell
       gsconnect
       gnome-40-ui-improvements
+      appindicator
     ];
 
     environment.gnome.excludePackages = (with pkgs; [

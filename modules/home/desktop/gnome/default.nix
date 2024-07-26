@@ -1,17 +1,17 @@
-{ config, pkgs, lib, ... }:
+{ config, osConfig, pkgs, lib, ... }:
 
 {
   imports = [
     ./dconf.nix
   ];
 
-  options = {
-    desktops.gnome.enable = lib.mkEnableOption "Enable gnome";
-  };
+  options = {};
 
-  config = lib.mkIf (config.desktops.gnome.enable) {
+  config = lib.mkIf (osConfig.desktops.gnome.enable) {
     home.packages = with pkgs; [
       dconf2nix # Generate .nix files from dconf
     ];
+
+    dconf.settings = lib.mkIf (!osConfig.desktops.gnome.enable) (lib.mkForce {});
   };
 }

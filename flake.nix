@@ -4,20 +4,6 @@
 	outputs = inputs@{ nixpkgs, home-manager, ... }:
 	let
 		lib = nixpkgs.lib; # Needed for... Something.
-
-		profiles = ["work"]; # Available are "work"
-
-		systemSettings = {
-			system = "x86_64-linux";
-			hostname = "roctim-nix";	
-			configDir = "/home/${userSettings.username}/.nix-config";
-		};
-
-		userSettings = {
-			username = "felbjar"; # User account name
-			name = "Felix Bjerhem Aronsson"; # Identifier/real name
-		};
-
 		pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
 		system = "x86_64-linux";
 
@@ -27,6 +13,7 @@
 				inherit system;
 				modules = [ 
 					./hosts/roctim-nix/configuration.nix
+					inputs.home-manager.nixosModules.home-manager
 					inputs.grub2-themes.nixosModules.default
 				];
 				specialArgs = {
@@ -37,19 +24,7 @@
 			};
 		};
 
-		# TODO: This should probably be replaced with a NixOS module
-		# instead of being a standalone home-manager install.
-		homeConfigurations = {
-			felbjar = home-manager.lib.homeManagerConfiguration {
-				inherit pkgs;
-				modules = [ ./home.nix ]; 
-				extraSpecialArgs = {
-					inherit profiles;
-					inherit userSettings;
-					inherit systemSettings;
-				};
-			};
-		};
+		homeManagerModules.default = import ./modules/home;
 	};
 
 	inputs = {

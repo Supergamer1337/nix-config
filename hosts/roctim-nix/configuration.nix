@@ -8,11 +8,16 @@
     ];
 
   # System settings 
-  host.name = "roctim-nix"; 
+  systemSettings = {
+    name = "roctim-nix"; 
+  };
 
   # User settings
-  user.name = "Felix Bjerhem Aronsson";
-  user.username = "felbjar";
+  userSettings = {
+    name = "Felix Bjerhem Aronsson";
+    username = "felbjar";
+    email = "felix.b.aronsson@gmail.com";
+  };
 
   # Profiles
   profiles.work.enable = true;
@@ -25,6 +30,9 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+
+  # Home manager state version
+  home.initialStateVersion = "24.05";
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

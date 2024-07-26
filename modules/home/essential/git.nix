@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, osConfig, pkgs, lib, ... }:
 
 {
   options = {};
@@ -6,8 +6,8 @@
   config = {
     programs.git = {
       enable = true;
-      userEmail = config.userSettings.email;
-      userName = config.userSettings.name;
+      userEmail = osConfig.userSettings.email;
+      userName = osConfig.userSettings.name;
     };
   };
 }

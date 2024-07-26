@@ -4,10 +4,10 @@
   imports = [
     ./essential
     ./services
-    ./users
     ./desktop
     ./fonts.nix
     ./programs.nix
+    ./user.nix
   ];
 
   options = {
@@ -16,15 +16,15 @@
     profiles.dev.enable = lib.mkEnableOption "Enable dev additions";
 
     # System/host settings (using host to avoid conflicts with builtin system options)
-    host.name = lib.mkOption {
+    systemSettings.name = lib.mkOption {
       type = lib.types.str;
       default = "NixOS";
       description = "The name of the machine as it will appear in the network, and identified by flakes.";
     };
 
-    host.configDir = lib.mkOption {
+    systemSettings.configDir = lib.mkOption {
       type = lib.types.str;
-      default = "/home/${config.user.username}/.nix-config";
+      default = "/home/${config.userSettings.username}/.nix-config";
       description = "The directory where the flake configuration is stored.";
     };
   };

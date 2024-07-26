@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, osConfig, pkgs, lib, ... }:
 
 {
   imports = [
@@ -7,7 +7,5 @@
 
   options = {};
 
-  config = {
-    desktops.gnome.enable = lib.mkDefault true;
-  };
+  config = {};
 }

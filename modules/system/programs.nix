@@ -12,7 +12,7 @@
     # Configured programs
     programs.nh = {
       enable = true;
-      flake = config.host.configDir; # Location of the configuration flake
+      flake = config.systemSettings.configDir; # Location of the configuration flake
 
       # Automatic cleanup, essentially nix.gc
       clean.enable = true;

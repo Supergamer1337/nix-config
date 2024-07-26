@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, osConfig, pkgs, lib, ... }:
 
 {
   options = {};
@@ -6,7 +6,7 @@
   config = {
     programs.ssh = {
       enable = true;
-      matchBlocks = lib.mkIf (config.profiles.work.enable) {
+      matchBlocks = lib.mkIf (osConfig.profiles.work.enable) {
         "github-roctim" = {
           hostname = "github.com";
           identityFile = "~/.ssh/roctim_git";

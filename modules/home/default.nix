@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, osConfig, pkgs, lib, ... }:
 
 {
   imports = [
@@ -7,29 +7,7 @@
     ./essential
   ];
 
-  options = {
-    profiles.work.enable = lib.mkEnableOption "Enable work additions";
-    profiles.dev.enable = lib.mkEnableOption "Enable dev additions";
-
-    # User settings
-    userSettings.username = lib.mkOption {
-      type = lib.types.str;
-      default = "felbjar";
-      description = "The username of the user";
-    };
-
-    userSettings.name = lib.mkOption {
-      type = lib.types.str;
-      default = "Felix Bjerhem Aronsson";
-      description = "The full name of the user";
-    };
-
-    userSettings.email = lib.mkOption {
-      type = lib.types.str;
-      default = "felix.b.aronsson@gmail.com";
-      description = "The email of the user";
-    };
-  };
+  options = {};
 
   config = {
     home.packages = with pkgs; lib.mkMerge [ 
@@ -56,12 +34,12 @@
       ]
 
       # Work profile
-      (lib.mkIf (config.profiles.work.enable) [
+      (lib.mkIf (osConfig.profiles.work.enable) [
         jetbrains.pycharm-professional
       ])
 
       # Dev profile
-      (lib.mkIf (config.profiles.dev.enable) [
+      (lib.mkIf (osConfig.profiles.dev.enable) [
         dbeaver-bin
       ])
     ];

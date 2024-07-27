@@ -19,7 +19,6 @@
         zip
         unzip
         bat
-        zoxide
 
         # Communication
         slack

@@ -22,6 +22,20 @@
 					inherit inputs;
 				};
 			};
+
+			TEMPLATE = lib.nixosSystem {
+				inherit system;
+				modules = [ 
+					./hosts/TEMPLATE/configuration.nix
+					inputs.home-manager.nixosModules.home-manager
+					inputs.grub2-themes.nixosModules.default
+				];
+				specialArgs = {
+					inherit pkgs;
+					inherit lib;
+					inherit inputs;
+				};
+			};
 		};
 
 		homeManagerModules.default = import ./modules/home;

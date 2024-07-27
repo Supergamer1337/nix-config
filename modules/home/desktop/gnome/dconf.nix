@@ -33,20 +33,12 @@ with lib.hm.gvariant;
       translate = true;
     };
 
-    "org/gnome/desktop/background" = {
-      picture-uri = "/home/felbjar/.nix-config/resources/wallpapers/candy-river-land.png";
-      picture-uri-dark = "/home/felbjar/.nix-config/resources/wallpapers/candy-river-land.png";
-      primary-color = "#3a4ba0";
-      secondary-color = "#2f302f";
-    };
-
     "org/gnome/desktop/input-sources" = {
       sources = [ (mkTuple [ "xkb" "se+us" ]) ];
       xkb-options = [ "terminate:ctrl_alt_bksp" ];
     };
 
     "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
       show-battery-percentage = true;
       toolkit-accessibility = false;
     };

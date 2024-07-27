@@ -10,6 +10,7 @@
   # System settings 
   systemSettings = {
     name = "roctim-nix"; 
+    theme = "candyland";
   };
 
   # User settings

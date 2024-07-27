@@ -15,6 +15,7 @@
 
   systemSettings = {
     name = "%MACHINE_NAME%"; 
+    # theme = "None";
   };
 
   userSettings = {

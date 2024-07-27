@@ -15,6 +15,7 @@
 					./hosts/roctim-nix/configuration.nix
 					inputs.home-manager.nixosModules.home-manager
 					inputs.grub2-themes.nixosModules.default
+					inputs.stylix.nixosModules.stylix
 				];
 				specialArgs = {
 					inherit pkgs;
@@ -29,6 +30,7 @@
 					./hosts/TEMPLATE/configuration.nix
 					inputs.home-manager.nixosModules.home-manager
 					inputs.grub2-themes.nixosModules.default
+					inputs.stylix.nixosModules.stylix
 				];
 				specialArgs = {
 					inherit pkgs;
@@ -47,6 +49,7 @@
 			url = "github:nix-community/home-manager/master";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		stylix.url = "github:danth/stylix";
 
 		grub2-themes.url = "github:vinceliuice/grub2-themes";
 	};

@@ -2,6 +2,10 @@
 
 {
   imports = [
+    # Themes
+    ../../themes
+
+    # System
     ./essential
     ./services
     ./desktop

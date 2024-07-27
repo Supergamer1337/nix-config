@@ -10,6 +10,7 @@ The configuration currently uses these awesome tools (some may also be undocumen
 - NixOS
 - Nix Flakes
 - Home Manager
+- Stylix
 
 # Structure
 
@@ -18,7 +19,7 @@ The structure of the configuration is as follows:
 ```
 nix-config
 ├── flake.nix # The main flake file
-├── resources # Resources (fonts, icons, wallpapers, etc.) used by the configuration
+├── themes # Contains the different themes available, as well as their resources (i.e. wallpapers) 
 ├── hosts
 │   ├── TEMPLATE # The template for used by the install script
 │   │   ├── configuration.nix # The configuration for the machine

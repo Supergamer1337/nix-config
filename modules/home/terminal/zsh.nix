@@ -30,12 +30,17 @@
       oh-my-zsh = {
         enable = true;
         plugins = [ "git" "direnv" ];
-        theme = "robbyrussell";
       };
 
       initExtra = ''
         fastfetch
       '';
+    };
+
+    programs.oh-my-posh = {
+      enable = true;
+      enableZshIntegration = true;
+      useTheme = "bubblesextra";
     };
   };
 }

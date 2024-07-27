@@ -6,7 +6,7 @@ with lib.hm.gvariant;
 {
   dconf.settings = {
     "org/gnome/control-center" = {
-      last-panel = "multitasking";
+      last-panel = "background";
       window-state = mkTuple [ 980 640 false ];
     };
 
@@ -51,8 +51,16 @@ with lib.hm.gvariant;
       application-id = "brave-browser.desktop";
     };
 
+    "org/gnome/desktop/notifications/application/gnome-power-panel" = {
+      application-id = "gnome-power-panel.desktop";
+    };
+
     "org/gnome/desktop/notifications/application/org-gnome-evolution-alarm-notify" = {
       application-id = "org.gnome.Evolution-alarm-notify.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/vesktop" = {
+      application-id = "vesktop.desktop";
     };
 
     "org/gnome/desktop/peripherals/keyboard" = {
@@ -99,7 +107,17 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/nautilus/preferences" = {
+      default-folder-viewer = "icon-view";
       migrated-gtk-settings = true;
+      search-filter-time-type = "last_modified";
+    };
+
+    "org/gnome/portal/filechooser/alacritty" = {
+      last-folder-path = "/home/felbjar/Programming/Nix";
+    };
+
+    "org/gnome/portal/filechooser/brave-browser" = {
+      last-folder-path = "/home/felbjar/Downloads";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -113,7 +131,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
-      enabled-extensions = [ "blur-my-shell@aunetx" "gnome-ui-tune@itstime.tech" ];
+      enabled-extensions = [ "blur-my-shell@aunetx" "gnome-ui-tune@itstime.tech" "appindicatorsupport@rgcjonas.gmail.com" ];
       favorite-apps = [ "brave-browser.desktop" "Alacritty.desktop" "org.gnome.Nautilus.desktop" ];
       welcome-dialog-last-shown-version = "46.2";
     };
@@ -145,8 +163,18 @@ with lib.hm.gvariant;
       sigma = 30;
     };
 
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Stylix";
+    };
+
     "org/gnome/shell/world-clocks" = {
       locations = [];
+    };
+
+    "org/gnome/software" = {
+      check-timestamp = mkInt64 1721933437;
+      first-run = false;
+      flatpak-purge-timestamp = mkInt64 1721724387;
     };
 
     "org/gtk/gtk4/settings/file-chooser" = {

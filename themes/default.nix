@@ -2,12 +2,14 @@
 
 {
 	imports = [
+    ./catppuccin
 		./candyland
 	];
 
   options = {
     systemSettings.theme = lib.mkOption {
       type = lib.types.enum [ 
+        "catppuccin"
         "candyland"
         "None" 
       ];

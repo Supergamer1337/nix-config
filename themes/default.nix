@@ -18,8 +18,24 @@
     };
   };
 
-  config = lib.mkIf (config.systemSettings.theme != "None") {
-    stylix.enable = true;
-    stylix.targets.grub.enable = false;
+  config = {
+    stylix.enable = lib.mkDefault true;
+    stylix.targets.grub.enable = lib.mkDefault false;
+    stylix.fonts = lib.mkDefault {
+      monospace = {
+        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        name = "JetBrainsMono Nerd Font Mono";
+      };
+
+      sansSerif = {
+        package = pkgs.roboto;
+        name = "Roboto";
+      };
+
+      serif = {
+        package = pkgs.roboto;
+        name = "Roboto";
+      };
+    };
   };
 }

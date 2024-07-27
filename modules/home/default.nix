@@ -16,6 +16,10 @@
         neovim
         brave
         fastfetch
+        zip
+        unzip
+        bat
+        zoxide
 
         # Communication
         slack

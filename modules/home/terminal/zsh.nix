@@ -13,6 +13,8 @@
       shellAliases = 
         {
           ll = "ls -l";
+          la = "ls -la";
+          cd = "z";
         }
         # Work aliases
         // lib.optionalAttrs (osConfig.profiles.work.enable) {

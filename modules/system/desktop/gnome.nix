@@ -32,7 +32,10 @@
       gsconnect
       gnome-40-ui-improvements
       appindicator
-    ];
+    ]
+    ++ (with pkgs; [
+      gnome-tweaks
+    ]);
 
     environment.gnome.excludePackages = (with pkgs; [
       gnome-photos

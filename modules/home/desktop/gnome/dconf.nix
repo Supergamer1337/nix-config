@@ -69,7 +69,7 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/peripherals/mouse" = {
       accel-profile = "flat";
-      speed = 0.46923076923076934;
+      speed = 0.469231;
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -180,6 +180,10 @@ with lib.hm.gvariant;
       check-timestamp = mkInt64 1721933437;
       first-run = false;
       flatpak-purge-timestamp = mkInt64 1721724387;
+    };
+
+    "org/gnome/tweaks" = {
+      show-extensions-notice = false;
     };
 
     "org/gtk/gtk4/settings/file-chooser" = {

@@ -1,5 +1,8 @@
 { config, osConfig, pkgs, lib, ... }:
 
+# Command to generate .nix files from dconf
+# dconf dump / | dconf2nix > ~/.nix-config/modules/home/desktop/gnome/dconf.nix
+
 {
   imports = [
     ./dconf.nix

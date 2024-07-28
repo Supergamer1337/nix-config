@@ -67,6 +67,11 @@ with lib.hm.gvariant;
       numlock-state = true;
     };
 
+    "org/gnome/desktop/peripherals/mouse" = {
+      accel-profile = "flat";
+      speed = 0.46923076923076934;
+    };
+
     "org/gnome/desktop/peripherals/touchpad" = {
       two-finger-scrolling-enabled = true;
     };

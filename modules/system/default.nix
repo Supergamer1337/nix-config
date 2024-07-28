@@ -9,6 +9,7 @@
     ./essential
     ./services
     ./desktop
+    ./hardware
     ./fonts.nix
     ./programs.nix
     ./user.nix

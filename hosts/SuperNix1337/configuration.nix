@@ -16,6 +16,11 @@
   systemSettings = {
     name = "SuperNix1337"; 
     theme = "catppuccin";
+
+    hardware = {
+      openrgb.enable = true;
+      cpu.vendor = "amd";
+    };
   };
 
   userSettings = {

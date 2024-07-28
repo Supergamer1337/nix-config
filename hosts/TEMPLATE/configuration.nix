@@ -15,7 +15,11 @@
 
   systemSettings = {
     name = "%MACHINE_NAME%"; 
-    # theme = "None";
+    theme = "None";
+
+    # hardware = {
+    #   cpu.vendor = "%CPU_VENDOR%"; # intel or amd
+    # };
   };
 
   userSettings = {

@@ -17,6 +17,8 @@
     name = "SuperNix1337"; 
     theme = "catppuccin";
 
+    dualBoot.enable = true;
+
     hardware = {
       openrgb.enable = true;
       cpu.vendor = "amd";

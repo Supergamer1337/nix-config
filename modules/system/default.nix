@@ -32,10 +32,18 @@
       default = "/home/${config.userSettings.username}/.nix-config";
       description = "The directory where the flake configuration is stored.";
     };
+
+    systemSettings.dualBoot.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Fix common issues when dual booting Linux and Windows (i.e. time)";
+    };
   };
 
   config = {
     # Enable CUPS to print documents.
     services.printing.enable = true;
+
+    time.hardwareClockInLocalTime = config.systemSettings.dualBoot.enable;
   };
 }

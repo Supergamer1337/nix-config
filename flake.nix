@@ -7,51 +7,43 @@
 		pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
 		system = "x86_64-linux";
 
+		# To remove duplication between configurations
+		specialArgs = {
+			inherit pkgs;
+			inherit lib;
+			inherit inputs;
+		};
+
+		commonModules = [
+			inputs.home-manager.nixosModules.home-manager
+			inputs.grub2-themes.nixosModules.default
+			inputs.stylix.nixosModules.stylix
+		];
+
 	in {
 		nixosConfigurations = {
 			roctim-nix = lib.nixosSystem {
 				inherit system;
+				inherit specialArgs;
 				modules = [ 
 					./hosts/roctim-nix/configuration.nix
-					inputs.home-manager.nixosModules.home-manager
-					inputs.grub2-themes.nixosModules.default
-					inputs.stylix.nixosModules.stylix
-				];
-				specialArgs = {
-					inherit pkgs;
-					inherit lib;
-					inherit inputs;
-				};
+				] ++ commonModules;
 			};
 
 			SuperNix1337 = lib.nixosSystem {
 				inherit system;
+				inherit specialArgs;
 				modules = [ 
 					./hosts/SuperNix1337/configuration.nix
-					inputs.home-manager.nixosModules.home-manager
-					inputs.grub2-themes.nixosModules.default
-					inputs.stylix.nixosModules.stylix
-				];
-				specialArgs = {
-					inherit pkgs;
-					inherit lib;
-					inherit inputs;
-				};
+				] ++ commonModules;
 			};
 
 			TEMPLATE = lib.nixosSystem {
 				inherit system;
+				inherit specialArgs;
 				modules = [ 
 					./hosts/TEMPLATE/configuration.nix
-					inputs.home-manager.nixosModules.home-manager
-					inputs.grub2-themes.nixosModules.default
-					inputs.stylix.nixosModules.stylix
-				];
-				specialArgs = {
-					inherit pkgs;
-					inherit lib;
-					inherit inputs;
-				};
+				] ++ commonModules;
 			};
 		};
 
@@ -64,8 +56,11 @@
 			url = "github:nix-community/home-manager/master";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		# Theme the entire system
 		stylix.url = "github:danth/stylix";
 
+		# Grub2 themes
 		grub2-themes.url = "github:vinceliuice/grub2-themes";
 	};
 }

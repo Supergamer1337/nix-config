@@ -24,6 +24,21 @@
 				};
 			};
 
+			SuperNix1337 = lib.nixosSystem {
+				inherit system;
+				modules = [ 
+					./hosts/SuperNix1337/configuration.nix
+					inputs.home-manager.nixosModules.home-manager
+					inputs.grub2-themes.nixosModules.default
+					inputs.stylix.nixosModules.stylix
+				];
+				specialArgs = {
+					inherit pkgs;
+					inherit lib;
+					inherit inputs;
+				};
+			};
+
 			TEMPLATE = lib.nixosSystem {
 				inherit system;
 				modules = [ 

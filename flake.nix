@@ -1,7 +1,7 @@
 {
 	description = "Flake of SuperGamer1337";
 
-	outputs = inputs@{ nixpkgs, home-manager, ... }:
+	outputs = inputs@{ nixpkgs, ... }:
 	let
 		lib = nixpkgs.lib; # Needed for... Something.
 		pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };

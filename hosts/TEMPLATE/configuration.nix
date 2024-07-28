@@ -19,6 +19,7 @@
 
     # hardware = {
     #   cpu.vendor = "%CPU_VENDOR%"; # intel or amd
+    #   gpu.vendor = "%GPU_VENDOR%"; # nvidia or amd or intel
     # };
   };
 

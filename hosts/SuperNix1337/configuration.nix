@@ -20,6 +20,10 @@
     hardware = {
       openrgb.enable = true;
       cpu.vendor = "amd";
+      gpu.vendor = "nvidia";
+      gpu.nvidia = {
+        open = false;
+      };
     };
   };
 

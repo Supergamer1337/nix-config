@@ -43,6 +43,8 @@
 
       # Dev profile
       (lib.mkIf (osConfig.profiles.dev.enable) [
+        jetbrains.rust-rover 
+        jetbrains.goland
         dbeaver-bin
       ])
     ];

@@ -11,6 +11,11 @@
   systemSettings = {
     name = "roctim-nix"; 
     theme = "catppuccin";
+
+    hardware = {
+      cpu.vendor = "intel";
+      gpu.vendor = "nvidia";
+    };
   };
 
   # User settings

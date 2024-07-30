@@ -10,17 +10,11 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
-      shellAliases = 
-        {
+      shellAliases = {
           ll = "ls -l";
           la = "ls -la";
           cd = "z";
-        }
-        # Work aliases
-        // lib.optionalAttrs (osConfig.profiles.work.enable) {
-          "ssh-roctim-prod" = "ssh root@167.99.171.160";
-          "ssh-roctim-beta" = "ssh root@165.227.3.78";
-        };
+      };
 
       history = {
         size = 10000;

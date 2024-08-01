@@ -6,7 +6,7 @@
   };
 
   config = lib.mkIf (config.systemSettings.theme == "catppuccin") {
-    stylix.image = ./catppuccin_landscape.png;
+    stylix.image = ./catppuccin_landscape.jpg;
     stylix.polarity = "dark";
     stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     stylix.cursor.package = pkgs.catppuccin-cursors.mochaDark;

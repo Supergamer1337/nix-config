@@ -3,6 +3,7 @@
 {
   imports = [
     ./gnome.nix
+    ./hyprland.nix
   ];
 
   options = {

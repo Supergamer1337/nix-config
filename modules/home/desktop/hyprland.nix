@@ -6,12 +6,25 @@
 
   config = lib.mkIf osConfig.desktops.hyprland.enable {
     wayland.windowManager.hyprland.enable = true;
+    
+    # Enable hyprpaper
+    services.hyprpaper.enable = true;
 
-    wayland.windowManager.hyprland.settings = {
-      "$mod" = "SUPER";
+    # Configure hyprland
+    wayland.windowManager.hyprland.settings = let
+	mainMod = "SUPER";
+	additionalMod = "SHIFT";
+    in {
+      exec-once = [ "hyprpaper" ];
+      "$mainMod" = "${mainMod}";
+      "$secondaryMod" = "${mainMod}${additionalMod}"; 
       bind = [
-        "$mod, Return, exec, alacritty"
+        "$mainMod, Return, exec, alacritty"
+        "$mainMod, W, killactive"
+        "$secondaryMod, W, exec, brave"
       ];
+      monitor = ",preferred,auto,1";
+
     };
   };
 

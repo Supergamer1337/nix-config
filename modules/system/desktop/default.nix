@@ -2,19 +2,16 @@
 
 {
   imports = [
+    ./displayManagers.nix
     ./gnome.nix
     ./hyprland.nix
+    ./kde.nix
   ];
 
-  options = {
-    headless.enable = lib.mkEnableOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Whether to enable headless mode (no desktop environment).";
-    };
-  };
+  options = {};
 
   config = {
-    desktops.gnome.enable = lib.mkDefault true;
+    systemSettings.desktop.gnome.enable = lib.mkDefault true;
+    systemSettings.desktop.kde.enable = lib.mkDefault false;
   };
 }

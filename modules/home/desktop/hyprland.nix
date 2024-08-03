@@ -4,7 +4,7 @@
 
   options = {};
 
-  config = lib.mkIf osConfig.desktops.hyprland.enable {
+  config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
     wayland.windowManager.hyprland.enable = true;
     
     # Enable hyprpaper

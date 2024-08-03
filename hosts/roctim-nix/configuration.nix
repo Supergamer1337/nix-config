@@ -30,7 +30,7 @@
   profiles.dev.enable = true;
 
   # Enable hyprland desktop
-  desktops.hyprland.enable = true;
+  desktop.hyprland.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

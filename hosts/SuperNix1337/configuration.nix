@@ -17,6 +17,12 @@
     name = "SuperNix1337"; 
     theme = "catppuccin";
 
+    desktop = {
+      displayManager = "sddm";
+      gnome.enable = false;
+      kde.enable = true;
+    };
+
     dualBoot.enable = true;
 
     hardware = {

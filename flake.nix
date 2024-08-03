@@ -57,6 +57,13 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
+		# To configure KDE plasma using home-manager
+		plasma-manager = {
+			url = "github:nix-community/plasma-manager";
+			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.home-manager.follows = "home-manager";
+		};
+
 		# Theme the entire system
 		stylix.url = "github:danth/stylix";
 

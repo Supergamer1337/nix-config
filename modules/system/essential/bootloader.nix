@@ -12,12 +12,5 @@
       efiSupport = true;
     };
     boot.loader.efi.canTouchEfiVariables = true;
-
-    # Customize bootloader
-    boot.loader.grub2-theme = {
-      enable = true;
-      theme = "tela";
-      footer = true;
-    };
   };
 }

@@ -20,7 +20,10 @@
 
   config = {
     stylix.enable = lib.mkDefault true;
-    stylix.targets.grub.enable = lib.mkDefault false;
+    stylix.targets.grub = {
+      enable = lib.mkDefault true;
+      useImage = lib.mkDefault true;
+    };
     stylix.fonts = lib.mkDefault {
       monospace = {
         package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };

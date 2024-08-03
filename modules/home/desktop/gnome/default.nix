@@ -15,6 +15,6 @@
       dconf2nix # Generate .nix files from dconf
     ];
 
-    dconf.settings = lib.mkIf (!osConfig.systemSetting.desktop.gnome.enable) (lib.mkForce {});
+    dconf.settings = lib.mkIf (!osConfig.systemSettings.desktop.gnome.enable) (lib.mkForce {});
   };
 }

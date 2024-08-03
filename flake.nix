@@ -16,7 +16,6 @@
 
 		commonModules = [
 			inputs.home-manager.nixosModules.home-manager
-			inputs.grub2-themes.nixosModules.default
 			inputs.stylix.nixosModules.stylix
 		];
 
@@ -66,8 +65,5 @@
 
 		# Theme the entire system
 		stylix.url = "github:danth/stylix";
-
-		# Grub2 themes
-		grub2-themes.url = "github:vinceliuice/grub2-themes";
 	};
 }

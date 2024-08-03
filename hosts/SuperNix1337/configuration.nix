@@ -18,8 +18,9 @@
     theme = "catppuccin";
 
     desktop = {
-      displayManager = "gdm";
-      gnome.enable = true;
+      displayManager = "sddm";
+      gnome.enable = false;
+      kde.enable = true;
     };
 
     dualBoot.enable = true;

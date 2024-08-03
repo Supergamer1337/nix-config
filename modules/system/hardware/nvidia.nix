@@ -12,7 +12,7 @@
   };
 
   config = lib.mkIf (config.systemSettings.hardware.gpu.vendor == "nvidia") {
-    hardware.opengl.enable = true;
+    hardware.graphics.enable = true;
 
     services.xserver.videoDrivers = [ "nvidia" ];
 

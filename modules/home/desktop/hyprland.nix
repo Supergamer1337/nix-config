@@ -23,7 +23,6 @@
         "$mainMod, W, killactive"
         "$secondaryMod, W, exec, brave"
       ];
-      monitor = ",preferred,auto,1";
 
     };
   };

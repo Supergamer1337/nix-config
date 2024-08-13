@@ -5,7 +5,7 @@
     systemSettings.hardware.gpu.nvidia = {
       open = lib.mkOption {
         type = lib.types.bool;
-        default = true;
+        default = false;
         description = "Whether to use the open kernel drivers for nvidia. (Turing and newer)";
       };
     };

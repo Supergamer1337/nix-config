@@ -18,9 +18,7 @@
     theme = "catppuccin";
 
     desktop = {
-      displayManager = "sddm";
-      gnome.enable = false;
-      kde.enable = true;
+      displayManager = "gdm";
     };
 
     dualBoot.enable = true;
@@ -29,9 +27,6 @@
       openrgb.enable = true;
       cpu.vendor = "amd";
       gpu.vendor = "nvidia";
-      gpu.nvidia = {
-        open = false;
-      };
     };
   };
 
@@ -42,7 +37,7 @@
   };
 
   profiles = {
-    work.enable = false;
+    work.enable = true;
     dev.enable = true;
   };
 

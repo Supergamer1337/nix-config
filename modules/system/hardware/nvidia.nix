@@ -8,6 +8,12 @@
         default = false;
         description = "Whether to use the open kernel drivers for nvidia. (Turing and newer)";
       };
+
+      power-management.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Enables experimental power management for nvidia. Might fix graphical corruptions after suspend.";
+      };
     };
   };
 
@@ -18,7 +24,7 @@
 
     hardware.nvidia = {
       modesetting.enable = true;
-      powerManagement.enable = false; # If graphical corruptions after susped, try enabling this.
+      powerManagement.enable = config.systemSettings.hardware.gpu.nvidia.power-management.enable; # If graphical corruptions after susped, try enabling this.
       powerManagement.finegrained = false; # Experimental, and only works on Turing and newer.
 
       # Enables the open source drivers for nvidia. Not noveau.

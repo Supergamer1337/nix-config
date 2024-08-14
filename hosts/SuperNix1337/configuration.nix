@@ -27,6 +27,8 @@
       openrgb.enable = true;
       cpu.vendor = "amd";
       gpu.vendor = "nvidia";
+
+      gpu.nvidia.power-management.enable = true;
     };
   };
 

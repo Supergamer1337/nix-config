@@ -4,11 +4,10 @@
   imports = [
     ./sound.nix
     ./docker.nix
+    ./tailscale.nix
   ];
 
   options = {};
 
-  config = {
-    services.sound.enable = lib.mkDefault true;
-  };
+  config = {};
 }

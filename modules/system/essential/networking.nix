@@ -8,8 +8,8 @@
 
     # Enable networking
     networking.networkmanager.enable = true;
-    networking.extraHosts = lib.mkIf (config.profiles.work.enable) ''
-      127.0.0.1 roctim-local.com
-    '';
+    networking.hosts = lib.mkIf (config.profiles.work.enable) {
+      "127.0.0.1" = [ "roctim-local.com" ];
+    };
   };
 }

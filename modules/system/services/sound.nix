@@ -2,7 +2,11 @@
 
 {
   options = {
-    services.sound.enable = lib.mkEnableOption "Enable sound (currently pipewire)";
+    services.sound.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Enable sound";
+    };
   };
 
   config = lib.mkIf config.services.sound.enable {

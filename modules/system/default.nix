@@ -45,5 +45,7 @@
     services.printing.enable = true;
 
     time.hardwareClockInLocalTime = config.systemSettings.dualBoot.enable;
+
+    nix.settings.auto-optimise-store = true;
   };
 }

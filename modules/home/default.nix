@@ -29,7 +29,7 @@
 
         # Media
         plex-desktop
-	netflix
+	      netflix
 
         # Development
         vscode-fhs

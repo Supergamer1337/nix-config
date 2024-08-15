@@ -19,6 +19,7 @@
         zip
         unzip
         bat
+        btop
 
         # Communication
         slack

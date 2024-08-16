@@ -28,9 +28,10 @@
         vesktop # Discord, modded.
         signal-desktop
 
+
         # Media
         plex-desktop
-	      netflix
+	netflix
 
         # Development
         vscode-fhs

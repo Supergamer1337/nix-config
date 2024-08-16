@@ -19,6 +19,19 @@
 
     desktop = {
       displayManager = "gdm";
+      hyprland = {
+      	enable = true;
+	monitors = [
+	  "DP-3, 2560x1440@120, 1920x0, 1"
+	  "DP-1, 1920x1080@120, 4480x144, 1"
+	  "DVI-D-1, 1920x1080@120, 0x720, 1"
+	];
+	workspaces = [
+	  "1, monitor:DVI-D-1"
+	  "2, monitor:DP-3"
+	  "3, monitor:DP-1"
+	];
+      };
     };
 
     dualBoot.enable = true;

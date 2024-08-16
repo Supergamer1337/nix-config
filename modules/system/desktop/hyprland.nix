@@ -5,6 +5,18 @@
   options = {
     systemSettings.desktop.hyprland = {
       enable = lib.mkEnableOption "Enable Hyprland desktop";
+
+      monitors = lib.mkOption {
+        type = lib.types.listOf lib.types.lines;
+        default = [ ", preferred, auto, 1" ];
+        description = "Configure monitors for Hyprland";
+      };
+
+      workspaces = lib.mkOption {
+        type = lib.types.listOf lib.types.lines;
+	description = "Configure workspaces for Hyprland";
+      };
+
     };
   };
 

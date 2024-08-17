@@ -10,12 +10,16 @@
     # Enable hyprpaper
     services.hyprpaper.enable = true;
 
+    # Enable extra programs for hyprland
+    programs.wofi.enable = true;
+    services.swaync.enable = true;
+
     # Configure hyprland
     wayland.windowManager.hyprland.settings = let
 	mainMod = "SUPER";
 	additionalMod = "SHIFT";
     in {
-      exec-once = [ "hyprpaper" ];
+      exec-once = [ "hyprpaper" "swaync" ];
       "$mainMod" = "${mainMod}";
       "$mainAddMod" = "${mainMod} ${additionalMod}"; 
 
@@ -27,6 +31,7 @@
 	"$mainAddMod, L, exit"
 	"$mainMod, F, toggleFloating"
 	"$mainAddMod, S, toggleSplit"
+	"$mainMod, Space, exec, wofi --show drun --allow-images"
 	
 	# Move focus using vim like keybinds
 	"$mainMod, h, moveFocus, l"

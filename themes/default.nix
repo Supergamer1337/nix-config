@@ -20,6 +20,14 @@
 
   config = {
     stylix.enable = lib.mkDefault true;
+
+    stylix.opacity = {
+      applications = 0.8;
+      desktop = 0.8;
+      popups = 0.8;
+      terminal = 0.8;
+    };
+
     stylix.targets.grub = {
       enable = lib.mkDefault true;
       useImage = lib.mkDefault true;

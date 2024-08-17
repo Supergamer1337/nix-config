@@ -5,6 +5,7 @@
     ./desktop
     ./terminal
     ./essential
+    ../../themes/home.nix
   ];
 
   options = {};

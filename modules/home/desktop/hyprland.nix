@@ -133,7 +133,8 @@
       ###### Input stuffs ######
       # Should depend on other config options in future
       input = {
-	kb_layout = "us";
+	kb_layout = "se";
+	kb_variant = "us";
 	follow_mouse = 1;
 	sensitivity = 0;
 	accel_profile = "flat";

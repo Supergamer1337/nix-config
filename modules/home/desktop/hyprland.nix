@@ -28,7 +28,7 @@
         "$mainMod, Return, exec, alacritty" # Should make this independent of actual terminal
         "$mainMod, W, killactive"
         "$mainAddMod, W, exec, brave" # Should make this independant of actual terminal
-	"$mainAddMod, L, exit"
+	"$mainAddMod, E, exit"
 	"$mainMod, F, toggleFloating"
 	"$mainAddMod, S, toggleSplit"
 	"$mainMod, Space, exec, wofi --show drun --allow-images"
@@ -38,6 +38,12 @@
 	"$mainMod, l, moveFocus, r"
 	"$mainMod, k, moveFocus, u"
 	"$mainMod, j, moveFocus, d"
+
+	# Move window using vim like hotkeys
+	"$mainAddMod, h, moveWindow, l"
+	"$mainAddMod, l, moveWindow, r"
+	"$mainAddMod, k, moveWindow, u"
+	"$mainAddMod, j, moveWindow, d"
 
 	# Scroll through workspaces
 	"$mainMod, mouse_down, workspace, e+1"

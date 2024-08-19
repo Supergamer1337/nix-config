@@ -3,7 +3,8 @@
 {
   imports = [
     ./gnome
-    ./hyprland.nix
+    ./hyprland
+    ./kde.nix
   ];
 
   options = {};

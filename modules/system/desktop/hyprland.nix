@@ -33,6 +33,7 @@
 
     environment.systemPackages = with pkgs; [
     	hyprpaper
+      hyprlock
 
       # Extra programs for hyprland
       wofi
@@ -47,6 +48,9 @@
     fonts.packages = with pkgs; [
         font-awesome
     ];
+
+    # Enable pam module for hyprlock
+    security.pam.services.hyprlock = {};
   };
 
 }

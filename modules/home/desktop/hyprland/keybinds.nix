@@ -16,7 +16,7 @@
         "$mainMod, Return, exec, alacritty" # Should make this independent of actual terminal
         "$mainMod, W, killactive"
         "$mainAddMod, W, exec, brave" # Should make this independant of actual terminal
-				"$mainAddMod, E, exit"
+				"$mainAddMod, E, exec, hyprlock"
 				"$mainMod, F, toggleFloating"
 				"$mainAddMod, S, toggleSplit"
 				"$mainMod, Space, exec, wofi --show drun --allow-images"

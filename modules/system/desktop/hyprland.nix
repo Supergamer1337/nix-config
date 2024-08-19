@@ -37,9 +37,15 @@
       # Extra programs for hyprland
       wofi
       swaynotificationcenter
+      waybar
       
       # Utilities
       nautilus
+    ];
+
+    # Fonts for Hyprland stuff, such as waybar
+    fonts.packages = with pkgs; [
+        font-awesome
     ];
   };
 

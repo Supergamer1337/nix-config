@@ -6,6 +6,8 @@
     ./behaviour.nix
     ./input.nix
     ./keybinds.nix
+
+    ./waybar.nix
   ];
 
   options = {};
@@ -19,7 +21,7 @@
     programs.wofi.enable = true;
 
     wayland.windowManager.hyprland.settings = {
-      exec-once = [ "hyprpaper" "swaync" ];
+      exec-once = [ "hyprpaper" "swaync" "waybar" ];
 
       monitor = osConfig.systemSettings.desktop.hyprland.monitors;
       workspace = osConfig.systemSettings.desktop.hyprland.workspaces;

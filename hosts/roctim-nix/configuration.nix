@@ -12,6 +12,11 @@
     name = "roctim-nix"; 
     theme = "catppuccin";
 
+    desktop = {
+      displayManager = "gdm";
+      enable = "gnome";
+    };
+
     hardware = {
       cpu.vendor = "intel";
       gpu.vendor = "nvidia";

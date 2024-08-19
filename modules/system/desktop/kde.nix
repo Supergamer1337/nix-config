@@ -1,11 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  options = {
-    systemSettings.desktop.kde.enable = lib.mkEnableOption "Enable KDE desktop";
-  };
+  options = {};
 
-  config = lib.mkIf (config.systemSettings.desktop.kde.enable) {
+  config = lib.mkIf (config.systemSettings.desktop.enable == "kde") {
     services.xserver.enable = true;
     services.desktopManager.plasma6.enable = true;
 

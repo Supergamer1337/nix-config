@@ -8,10 +8,13 @@
     ./kde.nix
   ];
 
-  options = {};
-
-  config = {
-    systemSettings.desktop.gnome.enable = lib.mkDefault true;
-    systemSettings.desktop.kde.enable = lib.mkDefault false;
+  options = {
+    systemSettings.desktop.enable = lib.mkOption {
+      type = lib.types.enum [ "gnome" "kde" "hyprland" "none" ];
+      default = "none";
+      description = "Which desktop environment to use";
+    };
   };
+
+  config = {};
 }

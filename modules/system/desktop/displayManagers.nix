@@ -4,7 +4,7 @@
   options = {
     systemSettings.desktop.displayManager = lib.mkOption {
       type = lib.types.enum [ "gdm" "sddm" "none" ];
-      default = "gdm";
+      default = "none";
       description = "The display manager to use.";
     };
   };

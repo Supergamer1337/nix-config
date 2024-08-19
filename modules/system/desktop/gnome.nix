@@ -2,11 +2,9 @@
 
 {
 
-  options = {
-    systemSettings.desktop.gnome.enable = lib.mkEnableOption "Enable gnome";
-  };
+  options = {};
 
-  config = lib.mkIf (config.systemSettings.desktop.gnome.enable) {
+  config = lib.mkIf (config.systemSettings.desktop.enable == "gnome") {
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 

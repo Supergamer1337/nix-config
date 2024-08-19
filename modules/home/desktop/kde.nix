@@ -3,7 +3,7 @@
 {
   options = {};
 
-  config = lib.mkIf (osConfig.systemSettings.desktop.kde.enable) {
+  config = lib.mkIf (osConfig.systemSettings.desktop.enable == "kde") {
     programs.plasma = {
       enable = true;
     };

@@ -22,7 +22,13 @@
     programs.wofi.enable = true;
 
     wayland.windowManager.hyprland.settings = {
-      exec-once = [ "hyprpaper" "swaync" "waybar" ];
+      exec-once = [ 
+      "hyprpaper" "swaync" "waybar" 
+
+      # Autostart programs
+      "vesktop" "whatsapp-for-linux" "caprine" "openrgb"
+
+      ];
 
       monitor = osConfig.systemSettings.desktop.hyprland.monitors;
       workspace = osConfig.systemSettings.desktop.hyprland.workspaces;

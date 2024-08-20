@@ -29,7 +29,6 @@
         vesktop # Discord, modded.
         signal-desktop
 
-
         # Media
         plex-desktop
 	netflix
@@ -38,6 +37,9 @@
         vscode-fhs
         nil # Nix LSP
         nixd # Alternative LSP
+
+	# Utils
+	bitwarden-desktop
       ]
 
       # Work profile

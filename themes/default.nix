@@ -22,10 +22,10 @@
     stylix.enable = lib.mkDefault true;
 
     stylix.opacity = {
-      applications = 0.8;
-      desktop = 0.8;
-      popups = 0.8;
-      terminal = 0.8;
+      applications = 0.6;
+      desktop = 0.6;
+      popups = 0.6;
+      terminal = 0.6;
     };
 
     stylix.targets.grub = {

@@ -21,9 +21,9 @@
         shadow_render_power = 3;
 
         blur = {
-          enabled = true;
-          size = 3;
-          passes = 1;
+          enabled = 1;
+          size = 6;
+          passes = 2;
 
           vibrancy = 0.1696;
         };

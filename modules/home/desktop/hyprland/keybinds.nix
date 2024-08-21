@@ -1,4 +1,4 @@
-{ osConfig, lib, pkgs, ... }:
+{ osConfig, config, lib, pkgs, ... }:
 
 {
 
@@ -6,6 +6,8 @@
 
   config = lib.mkIf (osConfig.systemSettings.desktop.enable == "hyprland") {
     wayland.windowManager.hyprland.settings = let 
+			scripts = config.scripts.hyprland;
+
       mainMod = "SUPER";
       additionalMod = "SHIFT";
     in {
@@ -19,6 +21,9 @@
 				"$mainMod, F, toggleFloating"
 				"$mainAddMod, S, toggleSplit"
 				"$mainMod, Space, exec, wofi --show drun --allow-images"
+
+				# Utilities and stuff
+				", Print, exec, ${scripts.screenshot}"
 				
 				# Move focus using vim like keybinds
 				"$mainMod, h, moveFocus, l"

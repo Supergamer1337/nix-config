@@ -9,6 +9,8 @@
 
     ./waybar.nix
     ./hyprlock.nix
+
+    ./scripts
   ];
 
   options = {};

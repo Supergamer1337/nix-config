@@ -42,6 +42,7 @@
       
       # Utilities
       nautilus
+      wl-clipboard
     ];
 
     # Fonts for Hyprland stuff, such as waybar

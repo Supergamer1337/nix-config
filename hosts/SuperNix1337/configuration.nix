@@ -30,9 +30,21 @@
         ];
 
         workspaces = [
-          "1, monitor:DVI-D-1"
-          "2, monitor:DP-3"
-          "3, monitor:DP-1"
+          ### MAIN MONITOR ###
+          "1,monitor:DP-3,persistent:true,default:true"
+          "2,monitor:DP-3,persistent:true" 
+          "3,monitor:DP-3,persistent:true" 
+          "4,monitor:DP-3,persistent:true" 
+          "5,monitor:DP-3,persistent:true" 
+          "6,monitor:DP-3,persistent:true" 
+
+          ### RIGHT MONITOR ###
+          "7,monitor:DP-1,persistent:true,default:true"
+          "8,monitor:DP-1,persistent:true" 
+
+          ### LEFT MONITOR ###
+          "9,monitor:DVI-D-1,persistent:true,default:true"
+          "10,monitor:DVI-D-1,persistent:true"
         ];
       };
     };

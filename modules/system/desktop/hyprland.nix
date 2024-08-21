@@ -34,6 +34,7 @@
     environment.systemPackages = with pkgs; [
     	hyprpaper
       hyprlock
+      polkit-kde-agent
 
       # Extra programs for hyprland
       wofi

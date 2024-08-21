@@ -26,6 +26,7 @@
     wayland.windowManager.hyprland.settings = {
       exec-once = [ 
       "hyprpaper" "mako" "waybar" 
+      "systemctl --user start plasma-polkit-agent"
 
       # Autostart programs
       "vesktop" "whatsapp-for-linux" "caprine" "openrgb"

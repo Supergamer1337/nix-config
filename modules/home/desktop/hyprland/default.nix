@@ -18,12 +18,12 @@
 
     services.hyprpaper.enable = true;
 
-    services.swaync.enable = true;
+    services.mako.enable = true;
     programs.wofi.enable = true;
 
     wayland.windowManager.hyprland.settings = {
       exec-once = [ 
-      "hyprpaper" "swaync" "waybar" 
+      "hyprpaper" "mako" "waybar" 
 
       # Autostart programs
       "vesktop" "whatsapp-for-linux" "caprine" "openrgb"

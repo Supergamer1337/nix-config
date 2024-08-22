@@ -11,7 +11,6 @@
     services.hardware.openrgb = {
       enable = true;
       package = pkgs.openrgb-with-all-plugins;
-      motherboard = config.systemSettings.hardware.cpu.vendor;
     };
   };
 }

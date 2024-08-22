@@ -57,6 +57,7 @@
 
         # Highlights
         highlight1 = "#${colors.base0D}";
+        highlight2 = "#${colors.base0E}";
       in ''
         * {
           font-family: JetBrainsMono Nerd Font;
@@ -87,13 +88,17 @@
         }
 
         #workspaces button {
-          color: ${altText};
+          color: ${highlight2};
           background-color: transparent;
           border-radius: 2rem;
           padding: 0.25rem;
           margin: 0.3rem 0;
 
           transition: color 0.5s, background-color 0.5s;
+        }
+
+        #workspaces button.empty {
+          color: ${altText};
         }
 
         #workspaces button.active {

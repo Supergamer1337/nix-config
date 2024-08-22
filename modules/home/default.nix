@@ -31,15 +31,15 @@
 
         # Media
         plex-desktop
-	netflix
+        netflix
 
         # Development
         vscode-fhs
         nil # Nix LSP
         nixd # Alternative LSP
 
-	# Utils
-	bitwarden-desktop
+        # Utils
+        bitwarden-desktop
       ]
 
       # Work profile

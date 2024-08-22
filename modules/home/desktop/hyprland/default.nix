@@ -29,7 +29,7 @@
       "systemctl --user start plasma-polkit-agent"
 
       # Autostart programs
-      "vesktop" "whatsapp-for-linux" "caprine"
+      "vesktop" "whatsapp-for-linux" "caprine" "slack"
 
       ];
 

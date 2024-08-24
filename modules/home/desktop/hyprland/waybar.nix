@@ -35,11 +35,33 @@
           #### Right Modules ####
           modules-right = [
             "tray"
+            "custom/notifications"
           ];
 
           tray = {
             icon-size = 15;
             spacing = 10;
+          };
+
+          "custom/notifications" = {
+            tooltip = false;
+            format = "{} {icon}";
+            format-icons = {
+              notification = "󱅫";
+              none = "";
+              dnd-notification = " ";
+              dnd-none = "󰂛";
+              inhibited-notification = " ";
+              inhibited-none = "";
+              dnd-inhibited-notification = " ";
+              dnd-inhibited-none = " ";
+            };
+            return-type = "json";
+            exec-if = "which swaync-client";
+            exec = "swaync-client -swb";
+            on-click = "sleep 0.1 && swaync-client -t -sw";
+            on-click-right = "sleep 0.1 && swaync-client -d -sw";
+            escape = true;
           };
         };
       };
@@ -72,7 +94,8 @@
 
         #window,
         #clock,
-        #tray {
+        #tray,
+        #custom-notifications {
           background-color: ${background};
           padding: 0.5rem 0.75rem;
           margin: 5px 0;
@@ -125,6 +148,11 @@
 
         /* --- Right Modules --- */
         #tray {
+          border-radius: 1rem;
+          margin: 5px 5px 5px 0;
+        }
+
+        #custom-notifications {
           border-radius: 1rem;
           margin: 5px 5px 5px 0;
         }

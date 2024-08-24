@@ -20,7 +20,7 @@
 
     services.hyprpaper.enable = true;
 
-    services.mako.enable = true;
+    services.swaync.enable = true;
     programs.wofi.enable = true;
 
     wayland.windowManager.hyprland.settings = {

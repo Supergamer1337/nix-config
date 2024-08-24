@@ -14,6 +14,8 @@
         default = false;
         description = "Enables experimental power management for nvidia. Might fix graphical corruptions after suspend.";
       };
+
+      betaDriver.enable = lib.mkEnableOption "Enables the beta driver for Nvidia systems.";
     };
   };
 
@@ -31,7 +33,9 @@
       open = config.systemSettings.hardware.gpu.nvidia.open;
 
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = if config.systemSettings.hardware.gpu.nvidia.betaDriver.enable
+      	then config.boot.kernelPackages.nvidiaPackages.beta
+      	else config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
 }

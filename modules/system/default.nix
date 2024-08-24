@@ -10,6 +10,8 @@
     ./services
     ./desktop
     ./hardware
+    ./programs
+
     ./fonts.nix
     ./programs.nix
     ./user.nix
@@ -17,8 +19,11 @@
 
   options = {
     # Profiles
-    profiles.work.enable = lib.mkEnableOption "Enable work additions";
-    profiles.dev.enable = lib.mkEnableOption "Enable dev additions";
+    profiles = {
+      work.enable = lib.mkEnableOption "Enable work additions";
+      dev.enable = lib.mkEnableOption "Enable dev additions";
+      gaming.enable = lib.mkEnableOption "Enable gaming additions";
+    };
 
     # System/host settings (using host to avoid conflicts with builtin system options)
     systemSettings.name = lib.mkOption {

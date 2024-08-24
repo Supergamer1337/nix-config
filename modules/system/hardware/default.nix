@@ -20,5 +20,7 @@
     };
   };
 
-  config = {};
+  config = {
+    hardware.xone.enable = config.profiles.gaming.enable;
+  };
 }

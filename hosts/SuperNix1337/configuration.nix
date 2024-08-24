@@ -69,6 +69,7 @@
   profiles = {
     work.enable = true;
     dev.enable = true;
+    gaming.enable = false;
   };
 
   # This value determines the NixOS release from which the default

@@ -38,7 +38,7 @@
 
       # Extra programs for hyprland
       wofi
-      mako
+      swaynotificationcenter
       waybar
       
       # Utilities

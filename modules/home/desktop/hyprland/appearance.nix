@@ -21,8 +21,8 @@
         shadow_render_power = 3;
 
         blur = {
-          enabled = 1;
-          size = 6;
+          enabled = osConfig.themeSettings.blur.enable;
+          size = osConfig.themeSettings.blur.amount;
           passes = 2;
 
           vibrancy = 0.1696;

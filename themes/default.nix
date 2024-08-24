@@ -16,16 +16,59 @@
       default = "None";
       description = "The theme to use.";
     };
+
+    themeSettings = {
+      blur = {
+        enable = lib.mkEnableOption "Enable blur effect";
+        amount = lib.mkOption {
+          type = lib.types.int;
+          default = 0;
+          description = "The amount of blur to apply.";
+        };
+      };
+
+      opacity = {
+        overall = lib.mkOption {
+          type = lib.types.float;
+          default = 1.0;
+          description = "The overall opacity of the theme.";
+        };
+
+        applications = lib.mkOption {
+          type = lib.types.float;
+          default = config.themeSettings.opacity.overall;
+          description = "The opacity of applications.";
+        };
+
+        desktop = lib.mkOption {
+          type = lib.types.float;
+          default = config.themeSettings.opacity.overall;
+          description = "The opacity of desktop.";
+        };
+
+        popups = lib.mkOption {
+          type = lib.types.float;
+          default = config.themeSettings.opacity.overall;
+          description = "The opacity of popups.";
+        };
+
+        terminal = lib.mkOption {
+          type = lib.types.float;
+          default = config.themeSettings.opacity.overall;
+          description = "The opacity of terminals.";
+        };
+      };
+    };
   };
 
   config = {
     stylix.enable = lib.mkDefault true;
 
     stylix.opacity = {
-      applications = 0.6;
-      desktop = 0.6;
-      popups = 0.6;
-      terminal = 0.6;
+      applications = config.themeSettings.opacity.applications;
+      desktop = config.themeSettings.opacity.desktop;
+      popups = config.themeSettings.opacity.popups;
+      terminal = config.themeSettings.opacity.terminal;
     };
 
     stylix.targets.grub = {

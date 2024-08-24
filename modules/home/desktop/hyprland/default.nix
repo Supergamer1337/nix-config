@@ -7,6 +7,7 @@
     ./input.nix
     ./keybinds.nix
 
+    ./swaync.nix
     ./waybar.nix
     ./hyprlock.nix
 
@@ -20,7 +21,6 @@
 
     services.hyprpaper.enable = true;
 
-    services.swaync.enable = true;
     programs.wofi.enable = true;
 
     wayland.windowManager.hyprland.settings = {

@@ -56,7 +56,10 @@
       cpu.vendor = "amd";
       gpu.vendor = "nvidia";
 
-      gpu.nvidia.power-management.enable = true;
+      gpu.nvidia = {
+        open = false;
+        power-management.enable = true;
+      };
     };
   };
 

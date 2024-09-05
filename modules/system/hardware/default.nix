@@ -21,6 +21,6 @@
   };
 
   config = {
-    hardware.xone.enable = config.profiles.gaming.enable;
+    hardware.xone.enable = false;
   };
 }

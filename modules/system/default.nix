@@ -28,7 +28,6 @@
     # System/host settings (using host to avoid conflicts with builtin system options)
     systemSettings.name = lib.mkOption {
       type = lib.types.str;
-      default = "NixOS";
       description = "The name of the machine as it will appear in the network, and identified by flakes.";
     };
 
@@ -50,6 +49,10 @@
     services.printing.enable = true;
 
     time.hardwareClockInLocalTime = config.systemSettings.dualBoot.enable;
+
+    environment.variables = {
+      NIX_PKGS_ALLOW_UNFREE = 1;
+    };
 
     nix.settings = {
       auto-optimise-store = true;

@@ -44,8 +44,6 @@
       geary # email reader
       evince # document viewer
       totem # video player
-    ]) ++ (with pkgs.gnome; [
-      # Gnome namespaced packages
       gnome-music
       gnome-characters
       tali # poker game

@@ -51,6 +51,7 @@
       (lib.mkIf (osConfig.profiles.dev.enable) [
         jetbrains.rust-rover 
         jetbrains.goland
+        jetbrains.clion
         dbeaver-bin
       ])
     ];

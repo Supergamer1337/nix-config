@@ -20,6 +20,20 @@
     hardware = {
       cpu.vendor = "intel";
       gpu.vendor = "nvidia";
+      laptop = {
+        enable = true;
+        battery.enable = lib.mkDefault false;
+        busIds = {
+          intel = "PCI:0:2:0";
+          nvidia = "PCI:1:0:0";
+        };
+      };
+    };
+  };
+  
+  specialisation = {
+    on-the-fly.configuration = {
+      systemSettings.hardware.laptop.battery.enable = lib.mkForce true;
     };
   };
 
@@ -31,9 +45,11 @@
   };
 
   # Profiles
-  profiles.work.enable = true;
-  profiles.dev.enable = true;
-  profiles.gaming.enable = true;
+  profiles = {
+    work.enable = true;
+    dev.enable = true;
+    gaming.enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

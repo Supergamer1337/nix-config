@@ -36,6 +36,18 @@
       package = if config.systemSettings.hardware.gpu.nvidia.betaDriver.enable
       	then config.boot.kernelPackages.nvidiaPackages.beta
       	else config.boot.kernelPackages.nvidiaPackages.stable;
+
+      prime = lib.mkIf (config.systemSettings.hardware.laptop.enable) {
+        intelBusId = config.systemSettings.hardware.laptop.busIds.intel;
+        nvidiaBusId = config.systemSettings.hardware.laptop.busIds.nvidia;
+
+        offload = lib.mkIf (config.systemSettings.hardware.laptop.battery.enable) {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+
+        sync.enable = !config.systemSettings.hardware.laptop.battery.enable;
+      };
     };
   };
 }

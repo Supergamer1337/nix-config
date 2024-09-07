@@ -31,7 +31,7 @@
       # Autostart programs
       "vesktop" "whatsapp-for-linux" "caprine" "slack"
 
-      ];
+      ] ++ lib.optional (osConfig.systemSettings.hardware.openrgb.enable) "openrgb";
 
       monitor = osConfig.systemSettings.desktop.hyprland.monitors;
       workspace = osConfig.systemSettings.desktop.hyprland.workspaces;

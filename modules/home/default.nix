@@ -40,6 +40,7 @@
 
         # Utils
         bitwarden-desktop
+	obsidian
       ]
 
       # Work profile

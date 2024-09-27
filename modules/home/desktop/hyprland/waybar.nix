@@ -36,6 +36,8 @@
           modules-right = [
             "tray"
             "custom/notifications"
+          ] ++ lib.optionals (osConfig.systemSettings.hardware.laptop.enable) [
+            "battery"
           ];
 
           tray = {
@@ -62,6 +64,21 @@
             on-click = "sleep 0.1 && swaync-client -t -sw";
             on-click-right = "sleep 0.1 && swaync-client -d -sw";
             escape = true;
+          };
+
+          battery = {
+            states = {
+              warning = 30;
+              critical = 15;
+            };
+            format = "{capacity}% {icon}";
+            format-icons = [
+              " "
+              " "
+              " "
+              " "
+              " "
+            ];
           };
         };
       };
@@ -95,7 +112,8 @@
         #window,
         #clock,
         #tray,
-        #custom-notifications {
+        #custom-notifications,
+        #battery {
           background-color: ${background};
           padding: 0.5rem 0.75rem;
           margin: 5px 0;
@@ -155,6 +173,23 @@
         #custom-notifications {
           border-radius: 1rem;
           margin: 5px 5px 5px 0;
+        }
+        
+        #battery {
+          border-radius: 1rem;
+          margin: 5px 5px 5px 0;
+        }
+
+        #battery.charging {
+          color: green; 
+        }
+
+        #battery.warning {
+          color: orange; 
+        }
+
+        #battery.critical {
+          color: red; 
         }
       '';
     };

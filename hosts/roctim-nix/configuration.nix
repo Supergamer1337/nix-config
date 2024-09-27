@@ -14,7 +14,7 @@
 
     desktop = {
       displayManager = "gdm";
-      enable = "gnome";
+      enable = lib.mkDefault "hyprland";
     };
 
     hardware = {
@@ -32,6 +32,9 @@
   };
   
   specialisation = {
+    gnome.configuration = {
+      systemSettings.desktop.enable = lib.mkForce "gnome";
+    };
     on-the-fly.configuration = {
       systemSettings.hardware.laptop.battery.enable = lib.mkForce true;
     };

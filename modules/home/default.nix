@@ -40,7 +40,7 @@
 
         # Utils
         bitwarden-desktop
-	obsidian
+        obsidian
       ]
 
       # Work profile
@@ -53,7 +53,6 @@
         jetbrains.rust-rover 
         jetbrains.goland
         jetbrains.clion
-        jetbrains.rider
         dbeaver-bin
       ])
     ];

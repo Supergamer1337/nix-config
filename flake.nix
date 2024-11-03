@@ -65,5 +65,8 @@
 
 		# Theme the entire system
 		stylix.url = "github:danth/stylix";
+
+    # Zen Browser
+    zen-browser.url = "github:ch4og/zen-browser-flake";
 	};
 }

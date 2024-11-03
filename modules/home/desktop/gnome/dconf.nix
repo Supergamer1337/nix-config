@@ -136,7 +136,7 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       enabled-extensions = [ "blur-my-shell@aunetx" "gnome-ui-tune@itstime.tech" "appindicatorsupport@rgcjonas.gmail.com" ];
-      favorite-apps = [ "brave-browser.desktop" "Alacritty.desktop" "org.gnome.Nautilus.desktop" ];
+      favorite-apps = [ "zen-browser.desktop" "Alacritty.desktop" "org.gnome.Nautilus.desktop" ];
       welcome-dialog-last-shown-version = "46.2";
     };
 

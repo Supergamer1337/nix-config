@@ -1,4 +1,4 @@
-{ config, osConfig, pkgs, lib, ... }:
+{ config, osConfig, pkgs, lib, inputs, ... }:
 
 {
   imports = [
@@ -15,7 +15,7 @@
       [
         # Essentials
         neovim
-        brave
+        inputs.zen-browser.packages."${system}".specific
         fastfetch
         zip
         unzip

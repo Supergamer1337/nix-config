@@ -45,15 +45,17 @@
 
       # Work profile
       (lib.mkIf (osConfig.profiles.work.enable) [
-        jetbrains.pycharm-professional
+        (jetbrains.plugins.addPlugins jetbrains.pycharm-professional ["github-copilot"])
+        nodejs_22 # Required for copilot in JetBrains... Apparently
       ])
 
       # Dev profile
       (lib.mkIf (osConfig.profiles.dev.enable) [
-        jetbrains.rust-rover 
-        jetbrains.goland
-        jetbrains.clion
+        (jetbrains.plugins.addPlugins jetbrains.rust-rover ["github-copilot"])
+        (jetbrains.plugins.addPlugins jetbrains.goland ["github-copilot"])
+        (jetbrains.plugins.addPlugins jetbrains.clion ["github-copilot"])
         dbeaver-bin
+        nodejs_22 # Required for copilot in JetBrains... Apparently
       ])
     ];
   };

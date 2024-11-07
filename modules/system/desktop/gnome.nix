@@ -31,6 +31,7 @@
       gnome-40-ui-improvements
       appindicator
     ]
+    ++ (with pkgs.gnomeExtensions; lib.optional config.systemSettings.services.tailscale.enable tailscale-qs)
     ++ (with pkgs; [
       gnome-tweaks
     ]);

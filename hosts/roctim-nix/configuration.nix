@@ -19,7 +19,7 @@
 
     hardware = {
       cpu.vendor = "intel";
-      gpu.vendor = "nvidia";
+      gpu.vendor = "intel";
       laptop = {
         enable = true;
         battery.enable = lib.mkDefault false;

@@ -22,18 +22,11 @@
       gpu.vendor = "intel";
       laptop = {
         enable = true;
-        battery.enable = lib.mkDefault false;
         busIds = {
           intel = "PCI:0:2:0";
           nvidia = "PCI:1:0:0";
         };
       };
-    };
-  };
-  
-  specialisation = {
-    on-the-fly.configuration = {
-      systemSettings.hardware.laptop.battery.enable = lib.mkForce true;
     };
   };
 

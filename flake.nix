@@ -37,6 +37,15 @@
 				] ++ commonModules;
 			};
 
+			nix-wsl = lib.nixosSystem {
+				inherit system;
+				inherit specialArgs;
+				modules = [ 
+					inputs.wsl.nixosModules.default
+					./hosts/nix-wsl/configuration.nix
+				] ++ commonModules;
+			};
+
 			TEMPLATE = lib.nixosSystem {
 				inherit system;
 				inherit specialArgs;
@@ -55,6 +64,9 @@
 			url = "github:nix-community/home-manager/master";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		# For WSL
+		wsl.url = "github:nix-community/NixOS-WSL/main";
 
 		# To configure KDE plasma using home-manager
 		plasma-manager = {

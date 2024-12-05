@@ -31,6 +31,10 @@
       description = "The name of the machine as it will appear in the network, and identified by flakes.";
     };
 
+    systemSettings.headless.enable = lib.mkEnableOption {
+      description = "Remove everything that is not needed on a headless system";
+    };
+
     systemSettings.configDir = lib.mkOption {
       type = lib.types.str;
       default = "/home/${config.userSettings.username}/.nix-config";

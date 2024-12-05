@@ -6,11 +6,11 @@
   config = {
     # Bootloader.
     boot.loader.grub = {
-      enable = true;
+      enable = lib.mkDefault true;
       useOSProber = true;
       device = "nodev";
       efiSupport = true;
     };
-    boot.loader.efi.canTouchEfiVariables = true;
+    boot.loader.efi.canTouchEfiVariables = lib.mkDefault true;
   };
 }

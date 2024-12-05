@@ -15,12 +15,22 @@
       [
         # Essentials
         neovim
-        inputs.zen-browser.packages."${system}".specific
         fastfetch
         zip
         unzip
         bat
         btop
+	wget
+
+        # Development
+        nil # Nix LSP
+        nixd # Alternative LSP
+      ]
+
+      # GUI Applications
+      (lib.mkIf (!osConfig.systemSettings.headless.enable) [
+      	# Essentials 
+        inputs.zen-browser.packages."${system}".specific
 
         # Communication
         slack
@@ -33,15 +43,13 @@
         plex-desktop
         netflix
 
-        # Development
+	# Development
         vscode-fhs
-        nil # Nix LSP
-        nixd # Alternative LSP
 
         # Utils
         bitwarden-desktop
         obsidian
-      ]
+      ])
 
       # Work profile
       (lib.mkIf (osConfig.profiles.work.enable) [

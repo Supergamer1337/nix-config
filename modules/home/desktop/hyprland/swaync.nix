@@ -5,7 +5,7 @@
   options = {};
 
   config = {
-    services.swaync = {
+    services.swaync = lib.mkIf (osConfig.systemSettings.desktop.enable == "hyprland") {
       enable = lib.mkDefault true;
       package = pkgs.swaynotificationcenter;
 

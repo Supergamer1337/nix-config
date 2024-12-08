@@ -11,9 +11,9 @@
       type = lib.types.enum [ 
         "catppuccin"
         "candyland"
-        "None" 
+        "none" 
       ];
-      default = "None";
+      default = "none";
       description = "The theme to use.";
     };
 
@@ -61,7 +61,7 @@
     };
   };
 
-  config = {
+  config = lib.mkIf (config.systemSettings.theme != "none") {
     stylix.enable = lib.mkDefault true;
 
     stylix.opacity = {

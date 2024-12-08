@@ -9,18 +9,12 @@ let
   username = "supergamer1337";
 in {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       ../../modules/system
     ];
 
   systemSettings = {
     name = "nix-wsl"; 
-    theme = "catppuccin";
-
-    hardware = {
-      cpu.vendor = "amd"; # intel or amd
-      gpu.vendor = "nvidia"; # nvidia or amd or intel
-    };
   };
 
   userSettings = {
@@ -31,7 +25,7 @@ in {
 
   profiles = {
     personal.enable = true;
-    dev.enable = false;
+    dev.enable = true;
     gaming.enable = false;
     work.enable = false;
   };

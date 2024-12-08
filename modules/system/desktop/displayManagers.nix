@@ -3,7 +3,7 @@
 {
   options = {
     systemSettings.desktop.displayManager = lib.mkOption {
-      type = lib.types.enum [ "gdm" "sddm" "none" ];
+      type = if config.systemSettings.desktop.enable != "none" then lib.types.enum [ "gdm" "sddm" ] else lib.types.enum [ "none" ];
       default = "none";
       description = "The display manager to use.";
     };

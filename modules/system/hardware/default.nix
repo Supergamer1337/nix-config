@@ -9,12 +9,14 @@
   options = {
     systemSettings.hardware = {
       cpu.vendor = lib.mkOption {
-        type = lib.types.enum [ "intel" "amd" ];
+        type = lib.types.enum [ "intel" "amd" "unknown" ];
+        default = "unknown";
         description = "The vendor of the CPU";
       };
 
       gpu.vendor = lib.mkOption {
-        type = lib.types.enum [ "nvidia" "amd" "intel" ];
+        type = lib.types.enum [ "nvidia" "amd" "intel" "unknown" ];
+        default = "unknown";
         description = "The vendor of the GPU";
       };
 
@@ -36,6 +38,6 @@
   };
 
   config = {
-    hardware.xone.enable = false;
+    hardware.xone.enable = config.profiles.gaming.enable;
   };
 }

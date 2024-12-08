@@ -4,12 +4,12 @@
   options = {
     services.sound.enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = if config.systemSettings.desktop.enable != "none" then true else false;
       description = "Enable sound";
     };
   };
 
-  config = lib.mkIf config.services.sound.enable {
+  config = lib.mkIf (config.services.sound.enable) {
     # Enable sound with pipewire.
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;

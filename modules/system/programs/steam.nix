@@ -3,7 +3,7 @@
 {
   options = {};
 
-  config = lib.mkIf config.profiles.gaming.enable {
+  config = lib.mkIf (config.profiles.gaming.enable && config.systemSettings.desktop.enable != "none") {
     environment.systemPackages = with pkgs; [
       steam
     ];

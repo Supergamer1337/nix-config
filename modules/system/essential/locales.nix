@@ -5,7 +5,7 @@
 
   config = {
     # Set your time zone.
-    time.timeZone = "Europe/Stockholm";
+    time.timeZone = lib.mkDefault "Europe/Stockholm";
 
     # Select internationalisation properties.
     i18n.defaultLocale = "en_US.UTF-8";

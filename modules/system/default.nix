@@ -13,7 +13,6 @@
     ./programs
 
     ./fonts.nix
-    ./programs.nix
     ./user.nix
   ];
 

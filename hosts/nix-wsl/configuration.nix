@@ -34,6 +34,7 @@ in {
   wsl = {
     enable = true;
     defaultUser = username;
+    docker-desktop.enable = true;
   };
   programs.nix-ld = {
     enable = true;

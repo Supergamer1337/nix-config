@@ -70,9 +70,10 @@
   };
 
   profiles = {
-    work.enable = true;
+    personal.enable = true;
     dev.enable = true;
     gaming.enable = false;
+    work.enable = true;
   };
 
   # This value determines the NixOS release from which the default
@@ -85,7 +86,4 @@
 
   # Home manager state version
   home.initialStateVersion = "24.05";
-
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

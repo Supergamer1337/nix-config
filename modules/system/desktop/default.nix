@@ -12,7 +12,7 @@
     systemSettings.desktop.enable = lib.mkOption {
       type = lib.types.enum [ "gnome" "kde" "hyprland" "none" ];
       default = "none";
-      description = "Which desktop environment to use";
+      description = "Which desktop environment to use. None will make the system headless.";
     };
   };
 

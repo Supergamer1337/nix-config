@@ -4,9 +4,10 @@
 # with the actual values
 
 # It can be used as it is right now, but it's recommended to use the setup script
-{ config, lib, pkgs, inputs, ...}:
-
-{
+{ config, lib, pkgs, inputs, ...}: 
+let
+  username = "supergamer1337";
+in {
   imports =
     [ # Include the results of the hardware scan.
       ../../modules/system
@@ -15,7 +16,6 @@
   systemSettings = {
     name = "nix-wsl"; 
     theme = "catppuccin";
-    headless.enable = true;
 
     hardware = {
       cpu.vendor = "amd"; # intel or amd
@@ -25,20 +25,21 @@
 
   userSettings = {
     name = "Feilx Bjerhem Aronsson";
-    username = "supergamer1337";
+    username = username;
     email = "felix.b.aronsson@gmail.com";
   };
 
   profiles = {
-    work.enable = false;
+    personal.enable = true;
     dev.enable = false;
     gaming.enable = false;
+    work.enable = false;
   };
 
   # WSL Specific settings
   wsl = {
     enable = true;
-    defaultUser = "supergamer1337";
+    defaultUser = username;
   };
   programs.nix-ld = {
     enable = true;
@@ -56,6 +57,4 @@
   # Home manager state version
   home.initialStateVersion = "24.05";
 
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

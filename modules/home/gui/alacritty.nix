@@ -3,7 +3,7 @@
 {
   options = {};
 
-  config = {
+  config = lib.mkIf (osConfig.systemSettings.desktop.enable != "none") {
     programs.alacritty = {
       enable = true;
       settings = {

@@ -75,21 +75,21 @@
       enable = lib.mkDefault true;
       useImage = lib.mkDefault true;
     };
-    stylix.fonts = lib.mkDefault {
-      monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font Mono";
-      };
+    # stylix.fonts = lib.mkDefault {
+    #   monospace = {
+    #     package = pkgs.nerd-fonts.jetbrains-mono;
+    #     name = "JetBrainsMono NF";
+    #   };
 
-      sansSerif = {
-        package = pkgs.roboto;
-        name = "Roboto";
-      };
+    #   sansSerif = {
+    #     package = pkgs.roboto;
+    #     name = "Roboto";
+    #   };
 
-      serif = {
-        package = pkgs.roboto;
-        name = "Roboto";
-      };
-    };
+    #   serif = {
+    #     package = pkgs.roboto;
+    #     name = "Roboto";
+    #   };
+    # };
   };
 }

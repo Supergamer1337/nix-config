@@ -30,6 +30,8 @@
     };
   };
 
+  time.timeZone = "Europe/Dublin";
+
   # User settings
   userSettings = {
     name = "Felix Bjerhem Aronsson";

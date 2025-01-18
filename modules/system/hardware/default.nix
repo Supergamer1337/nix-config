@@ -4,6 +4,7 @@
   imports = [
     ./openrgb.nix
     ./nvidia.nix
+    ./intel.nix
   ];
 
   options = {

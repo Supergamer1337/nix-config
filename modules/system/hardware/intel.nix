@@ -15,10 +15,5 @@
         libvdpau-va-gl
       ];
     };
-
-    # Set the LIBVA_DRIVER_NAME environment variable to "iHD", so that it uses the integrated GPU.
-    environment.sessionVariables = {
-      LIBVA_DRIVER_NAME = "iHD";
-    };
   };
 }

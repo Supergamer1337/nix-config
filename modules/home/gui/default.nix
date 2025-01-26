@@ -27,6 +27,9 @@
         (jetbrains.plugins.addPlugins jetbrains.pycharm-professional ["github-copilot"])
         dbeaver-bin
         whatsapp-for-linux
+
+        # Office suite
+        libreoffice
       ])
 
       # Dev profile

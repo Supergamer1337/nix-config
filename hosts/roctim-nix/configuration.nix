@@ -7,6 +7,8 @@
       ../../modules/system
     ];
 
+  services.flatpak.enable = true;
+
   # System settings 
   systemSettings = {
     name = "roctim-nix"; 
@@ -19,7 +21,7 @@
 
     hardware = {
       cpu.vendor = "intel";
-      gpu.vendor = "intel";
+      gpu.vendor = "nvidia";
       laptop = {
         enable = true;
         busIds = {
@@ -43,7 +45,7 @@
   profiles = {
     work.enable = true;
     dev.enable = true;
-    gaming.enable = false;
+    gaming.enable = true;
     personal.enable = true;
   };
 

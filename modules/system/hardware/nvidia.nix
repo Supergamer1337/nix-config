@@ -26,6 +26,7 @@
 
     hardware.nvidia = {
       modesetting.enable = true;
+
       powerManagement.enable = config.systemSettings.hardware.gpu.nvidia.power-management.enable; # If graphical corruptions after susped, try enabling this.
       powerManagement.finegrained = false; # Experimental, and only works on Turing and newer.
 
@@ -33,6 +34,7 @@
       open = config.systemSettings.hardware.gpu.nvidia.open;
 
       nvidiaSettings = true;
+
       package = if config.systemSettings.hardware.gpu.nvidia.betaDriver.enable
       	then config.boot.kernelPackages.nvidiaPackages.beta
       	else config.boot.kernelPackages.nvidiaPackages.stable;

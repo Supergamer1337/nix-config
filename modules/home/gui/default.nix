@@ -50,6 +50,7 @@
 
         # Media
         plex-desktop
+        nur.repos.nltch.spotify-adblock
       ])
     ];
   };

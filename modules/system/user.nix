@@ -48,7 +48,6 @@
 
     home-manager.sharedModules = [
       inputs.self.homeManagerModules.default
-      inputs.plasma-manager.homeManagerModules.plasma-manager
     ];
 
     home-manager = {

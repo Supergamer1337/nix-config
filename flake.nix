@@ -1,10 +1,10 @@
 {
 	description = "Flake of SuperGamer1337";
 
-	outputs = inputs@{ nixpkgs, ... }:
+	outputs = inputs@{ nixpkgs, nur, ... }:
 	let
 		lib = nixpkgs.lib; # Needed for... Something.
-		pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+		pkgs = import nixpkgs { inherit system; config.allowUnfree = true; overlays = [ nur.overlays.default ]; };
 		system = "x86_64-linux";
 
 		# To remove duplication between configurations
@@ -17,6 +17,7 @@
 		commonModules = [
 			inputs.home-manager.nixosModules.home-manager
 			inputs.stylix.nixosModules.stylix
+			inputs.nur.modules.nixos.default
 		];
 
 	in {
@@ -68,17 +69,16 @@
 		# For WSL
 		wsl.url = "github:nix-community/NixOS-WSL/main";
 
-		# To configure KDE plasma using home-manager
-		plasma-manager = {
-			url = "github:nix-community/plasma-manager";
-			inputs.nixpkgs.follows = "nixpkgs";
-			inputs.home-manager.follows = "home-manager";
-		};
-
 		# Theme the entire system
 		stylix.url = "github:danth/stylix";
 
 		# For Zen browser
 		zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+		# NUR - Nix User Repository
+		nur = {
+			url = "github:nix-community/NUR";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 }

@@ -4,7 +4,6 @@
   imports = [
     ./gnome
     ./hyprland
-    ./kde.nix
   ];
 
   options = {};

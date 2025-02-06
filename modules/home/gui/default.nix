@@ -13,6 +13,7 @@
       [
       	# Essentials 
         inputs.zen-browser.packages."${system}".default
+        protonvpn-gui
 
 	      # Development
         vscode-fhs

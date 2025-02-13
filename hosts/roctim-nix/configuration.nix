@@ -7,8 +7,6 @@
       ../../modules/system
     ];
 
-  services.flatpak.enable = true;
-
   # System settings 
   systemSettings = {
     name = "roctim-nix"; 

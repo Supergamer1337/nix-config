@@ -50,7 +50,7 @@
         signal-desktop
 
         # Media
-        # plex-desktop
+        plex-desktop
         nur.repos.nltch.spotify-adblock
       ])
     ];

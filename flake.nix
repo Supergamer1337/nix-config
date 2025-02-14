@@ -58,17 +58,17 @@
 	};
 
 	inputs = {
-		nixpkgs.url = "nixpkgs/nixos-unstable";
+		nixpkgs.url = "nixpkgs/nixos-24.11";
+		unstable.url = "nixpkgs/nixpkgs-unstable";
 		home-manager = {
-			url = "github:nix-community/home-manager/master";
+			url = "github:nix-community/home-manager/release-24.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		# Theme the entire system
+		stylix.url = "github:danth/stylix/release-24.11";
 
 		# For WSL
 		wsl.url = "github:nix-community/NixOS-WSL/main";
-
-		# Theme the entire system
-		stylix.url = "github:danth/stylix";
 
 		# For Zen browser
 		zen-browser.url = "github:0xc000022070/zen-browser-flake";

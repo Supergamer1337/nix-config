@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ...}:
+{ config, lib, inputs, ...}:
 
 {
   imports = [
@@ -63,7 +63,20 @@
       experimental-features = [ "nix-command" "flakes" ];
     };
 
-    # Allow unfree and proprietary software
-    nixpkgs.config.allowUnfree = true;
+    # Configure nixpkgs
+    nixpkgs = {
+      # Allow proprietary software
+      config.allowUnfree = true;
+
+      # Setup an overlay for pkgs.unstable
+      overlays = [
+        (final: _: {
+          unstable = import inputs.unstable {
+            inherit (final.stdenv.hostPlatform) system;
+            inherit (final) config;
+          };
+        })
+      ];
+    };
   };
 }

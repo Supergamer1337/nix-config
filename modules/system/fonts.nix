@@ -6,8 +6,9 @@
   config = {
     # Fonts
     fonts.packages = with pkgs; [
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       corefonts
-      nerd-fonts.jetbrains-mono
+      jetbrains-mono
     ];
   };
 }

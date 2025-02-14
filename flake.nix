@@ -78,5 +78,8 @@
 			url = "github:nix-community/NUR";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		# Temporary plex source to fix hardware decoding issues
+		plex-fix.url = "github:detroyejr/nixpkgs/plex-desktop-dependency-cleanup";
 	};
 }

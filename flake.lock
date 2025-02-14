@@ -370,11 +370,28 @@
         "type": "github"
       }
     },
+    "plex-fix": {
+      "locked": {
+        "lastModified": 1739391692,
+        "narHash": "sha256-IxIuUT/cU7qqb4wMn7z6oIS8S1cAP12YOQxo5BeM9Mc=",
+        "owner": "detroyejr",
+        "repo": "nixpkgs",
+        "rev": "848b5df8cc314ed20582c442fee31f1b606c6710",
+        "type": "github"
+      },
+      "original": {
+        "owner": "detroyejr",
+        "ref": "plex-desktop-dependency-cleanup",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
+        "plex-fix": "plex-fix",
         "stylix": "stylix",
         "unstable": "unstable",
         "wsl": "wsl",

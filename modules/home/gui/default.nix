@@ -7,7 +7,13 @@
 
   options = {};
 
-  config = lib.mkIf (osConfig.systemSettings.desktop.enable != "none") {
+  config = let 
+    plex-fix = import inputs.plex-fix {
+      config.allowUnfree = true;
+      system = pkgs.system; 
+    };
+  in lib.mkIf (osConfig.systemSettings.desktop.enable != "none") {
+
     home.packages = with pkgs; lib.mkMerge [
       # Always enabled
       [
@@ -50,7 +56,8 @@
         signal-desktop
 
         # Media
-        plex-desktop
+        #plex-desktop
+        plex-fix.plex-desktop
         nur.repos.nltch.spotify-adblock
       ])
     ];

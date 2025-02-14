@@ -1,15 +1,13 @@
 {
 	description = "Flake of SuperGamer1337";
 
-	outputs = inputs@{ nixpkgs, nur, ... }:
+	outputs = inputs@{ nixpkgs, ... }:
 	let
-		lib = nixpkgs.lib; # Needed for... Something.
-		pkgs = import nixpkgs { inherit system; config.allowUnfree = true; overlays = [ nur.overlays.default ]; };
 		system = "x86_64-linux";
+		lib = nixpkgs.lib;
 
 		# To remove duplication between configurations
 		specialArgs = {
-			inherit pkgs;
 			inherit lib;
 			inherit inputs;
 		};

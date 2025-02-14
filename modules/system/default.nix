@@ -50,10 +50,6 @@
 
     time.hardwareClockInLocalTime = config.systemSettings.dualBoot.enable;
 
-    environment.variables = {
-      NIX_PKGS_ALLOW_UNFREE = 1;
-    };
-
     nix.settings = {
       auto-optimise-store = true;
 
@@ -66,5 +62,8 @@
       # Enable flakes 
       experimental-features = [ "nix-command" "flakes" ];
     };
+
+    # Allow unfree and proprietary software
+    nixpkgs.config.allowUnfree = true;
   };
 }

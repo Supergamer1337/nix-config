@@ -22,7 +22,7 @@
         protonvpn-gui
 
 	      # Development
-        vscode-fhs
+        unstable.vscode-fhs
 
         # Utils
         bitwarden-desktop

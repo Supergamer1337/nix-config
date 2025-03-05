@@ -20,8 +20,6 @@
   config = lib.mkIf (config.systemSettings.desktop.enable == "hyprland") {
     programs.hyprland.enable = true;
 
-    environment.sessionVariables.NIXOS_OZONE_WL = 1;
-
     xdg.portal = {
       enable = true;
       configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
@@ -47,7 +45,7 @@
 
     # Fonts for Hyprland stuff, such as waybar
     fonts.packages = with pkgs; [
-        font-awesome
+      font-awesome
     ];
 
     # Enable pam module for hyprlock

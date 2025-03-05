@@ -14,7 +14,7 @@
 
     desktop = {
       displayManager = "gdm";
-      enable = "gnome";
+      enable = "hyprland";
     };
 
     hardware = {

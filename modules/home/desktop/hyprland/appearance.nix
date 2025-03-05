@@ -16,9 +16,11 @@
       decoration = {
         rounding = 10;
 
-        drop_shadow = true;
-        shadow_range = 4;
-        shadow_render_power = 3;
+        shadow = {
+          enabled = true;
+          range = 4;
+          render_power = 3;
+        };
 
         blur = {
           enabled = osConfig.themeSettings.blur.enable;

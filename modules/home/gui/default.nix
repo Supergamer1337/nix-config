@@ -60,6 +60,11 @@
         plex-fix.plex-desktop
         nur.repos.nltch.spotify-adblock
       ])
+
+      # Gaming profile
+      (lib.mkIf (osConfig.profiles.gaming.enable) [
+        torzu
+      ])
     ];
   };
 }

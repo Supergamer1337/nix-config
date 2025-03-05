@@ -24,6 +24,9 @@
 
 				# Utilities and stuff
 				", Print, exec, ${scripts.screenshot}"
+				", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+"
+				", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%-"
+				", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
 				
 				# Move focus using vim like keybinds
 				"$mainMod, h, moveFocus, l"

@@ -23,7 +23,11 @@
 
       laptop = {
         enable = lib.mkEnableOption "Enables laptop mode for the system";
-        battery.enable = lib.mkEnableOption "Enables battery mode for the system";
+        battery.enable = lib.mkOption {
+          type = lib.types.bool;
+          default = true;
+          description = "Enables battery saving features for the laptop";
+        }; 
         busIds = {
           intel = lib.mkOption {
             type = lib.types.str;

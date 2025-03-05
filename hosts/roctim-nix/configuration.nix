@@ -19,7 +19,7 @@
 
     hardware = {
       cpu.vendor = "intel";
-      gpu.vendor = "intel";
+      gpu.vendor = "nvidia";
       laptop = {
         enable = true;
         busIds = {

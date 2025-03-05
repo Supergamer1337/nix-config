@@ -51,5 +51,16 @@
         sync.enable = !config.systemSettings.hardware.laptop.battery.enable;
       };
     };
+
+
+    environment.systemPackages = lib.mkIf (config.systemSettings.hardware.laptop.enable && config.systemSettings.hardware.laptop.battery.enable) [
+      (pkgs.writeScriptBin "nvidia-offload" ''
+        export __NV_PRIME_RENDER_OFFLOAD=1
+        export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+        export __GLX_VENDOR_LIBRARY_NAME=nvidia
+        export __VK_LAYER_NV_optimus=NVIDIA_only
+        exec "$@"
+      '')
+    ];
   };
 }

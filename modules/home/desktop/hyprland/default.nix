@@ -29,7 +29,13 @@
       "systemctl --user start hyprpolkitagent"
 
       # Autostart programs
-      "vesktop" "whatsapp-for-linux" "caprine" "slack"
+      "[workspace 10 silent] vesktop"
+      "[workspace 10 silent] slack"
+
+      "[workspace 9 silent] whatsapp-for-linux" 
+      "[workspace 9 silent] caprine" 
+
+      "[workspace 8 silent] obsidian"
 
       ] ++ lib.optional (osConfig.systemSettings.hardware.openrgb.enable) "openrgb";
 

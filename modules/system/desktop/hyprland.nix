@@ -31,7 +31,9 @@
     environment.systemPackages = with pkgs; [
     	hyprpaper
       hyprlock
+      hypridle
       hyprpolkitagent
+      brightnessctl
 
       # Extra programs for hyprland
       wofi

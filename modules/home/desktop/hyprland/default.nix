@@ -10,6 +10,7 @@
     ./swaync.nix
     ./waybar.nix
     ./hyprlock.nix
+    ./hypridle.nix
 
     ./scripts
   ];
@@ -25,7 +26,7 @@
 
     wayland.windowManager.hyprland.settings = {
       exec-once = [ 
-      "hyprpaper" "mako" "waybar" 
+      "hyprpaper" "hypridle" "mako" "waybar" 
       "systemctl --user start hyprpolkitagent"
 
       # Autostart programs

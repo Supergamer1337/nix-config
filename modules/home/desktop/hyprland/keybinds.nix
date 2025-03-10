@@ -21,6 +21,7 @@
 				"$mainMod, F, toggleFloating"
 				"$mainAddMod, S, toggleSplit"
 				"$mainMod, Space, exec, wofi --show drun --allow-images"
+				"$mainAddMod, F, fullscreen"
 
 				# Utilities and stuff
 				", Print, exec, ${scripts.screenshot}"

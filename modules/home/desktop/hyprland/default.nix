@@ -40,6 +40,12 @@
 
       ] ++ lib.optional (osConfig.systemSettings.hardware.openrgb.enable) "openrgb";
 
+      windowrulev2 = [
+        "idleinhibit fullscreen, class:^(*)$"
+        "idleinhibit fullscreen, title:^(*)$"
+        "idleinhibit fullscreen, fullscreen:1"
+      ];
+
       monitor = osConfig.systemSettings.desktop.hyprland.monitors;
       workspace = osConfig.systemSettings.desktop.hyprland.workspaces;
 

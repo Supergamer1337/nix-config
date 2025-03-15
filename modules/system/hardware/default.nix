@@ -9,6 +9,12 @@
 
   options = {
     systemSettings.hardware = {
+      bluetooth.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "Enables bluetooth support";
+      };
+
       cpu.vendor = lib.mkOption {
         type = lib.types.enum [ "intel" "amd" "unknown" ];
         default = "unknown";
@@ -43,6 +49,11 @@
   };
 
   config = {
-    hardware.xone.enable = config.profiles.gaming.enable;
+    hardware = {
+      bluetooth.enable = config.systemSettings.hardware.bluetooth.enable;
+      xone.enable = config.profiles.gaming.enable;
+    };
+
+    services.blueman.enable = (config.systemSettings.desktop.enable == "hyprland" && config.systemSettings.hardware.bluetooth.enable);
   };
 }

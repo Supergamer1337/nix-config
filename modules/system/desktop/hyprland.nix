@@ -34,6 +34,7 @@
       hypridle
       hyprpolkitagent
       brightnessctl
+      networkmanagerapplet
 
       # Extra programs for hyprland
       wofi

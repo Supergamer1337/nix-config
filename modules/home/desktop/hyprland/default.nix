@@ -24,9 +24,11 @@
 
     programs.wofi.enable = true;
 
+    services.network-manager-applet.enable = true;
+
     wayland.windowManager.hyprland.settings = {
       exec-once = [ 
-      "hyprpaper" "hypridle" "mako" "waybar" 
+      "hyprpaper" "hypridle" "mako" "waybar" "blueman-applet" "nm-applet --indicator"
       "systemctl --user start hyprpolkitagent"
 
       # Autostart programs

@@ -40,7 +40,9 @@
 
       "[workspace 8 silent] obsidian"
 
-      ] ++ lib.optional (osConfig.systemSettings.hardware.openrgb.enable) "openrgb";
+      ] 
+      ++ lib.optional (osConfig.systemSettings.hardware.openrgb.enable) "openrgb"
+      ++ lib.optional (osConfig.systemSettings.desktop.displayManager == "greetd") "hyprlock";
 
       windowrulev2 = [
         "idleinhibit fullscreen, class:^(*)$"

@@ -27,7 +27,10 @@
     services.network-manager-applet.enable = true;
 
     wayland.windowManager.hyprland.settings = {
-      exec-once = [ 
+      exec-once =
+      # Want to minimize the amount of time before hyprlock kicks in, therefore it is first in the list
+      lib.optional (osConfig.systemSettings.desktop.displayManager == "greetd") "hyprlock" ++
+      [ 
       "hyprpaper" "hypridle" "mako" "waybar" "blueman-applet" "nm-applet --indicator"
       "systemctl --user start hyprpolkitagent"
 
@@ -41,8 +44,7 @@
       "[workspace 8 silent] obsidian"
 
       ] 
-      ++ lib.optional (osConfig.systemSettings.hardware.openrgb.enable) "openrgb"
-      ++ lib.optional (osConfig.systemSettings.desktop.displayManager == "greetd") "hyprlock";
+      ++ lib.optional (osConfig.systemSettings.hardware.openrgb.enable) "openrgb";
 
       windowrulev2 = [
         "idleinhibit fullscreen, class:^(*)$"

@@ -37,6 +37,48 @@
           vibrancy_darkness = 0.0;
         };
 
+        image = {
+          monitor = "";
+          path = "${osConfig.userSettings.image}";
+          size = 150; # lesser side if not 1:1 ratio
+          rounding = -1; # negative values mean circle
+          border_size = 4;
+          border_color = "rgb(0, 0, 0, 0)";
+          rotate = 0; # degrees, counter-clockwise
+
+          position = "0, 200";
+          halign = "center";
+          valign = "center";
+        };
+
+        label = [
+          {
+            monitor = "";
+            text = "Welcome, ${osConfig.userSettings.username}!";
+            text_align = "center";
+            color = "rgba(255, 255, 255, 1.0)";
+            font_size = 25;
+            font_family = "${osConfig.stylix.fonts.sansSerif.name}";
+            rotate = 0; # degrees, counter-clockwise
+
+            position = "0, 80";
+            halign = "center";
+            valign = "center";
+          }
+          {
+            monitor = "";
+            text = "$TIME";
+            text_align = "center";
+            font_size = 20;
+            font_family = "${osConfig.stylix.fonts.monospace.name}";
+            rotate = 0; # degrees, counter-clockwise
+
+            position = "0, 310";
+            halign = "center";
+            valign = "center";
+          }
+        ];
+
         input-field = {
           monitor = "";
           fade_on_empty = true;

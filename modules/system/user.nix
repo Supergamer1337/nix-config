@@ -21,6 +21,11 @@
       description = "The email address of the user account.";
     };
 
+    userSettings.image = lib.mkOption {
+      type = lib.types.path;
+      description = "The image of the user account.";
+    };
+
     # Home manager options
     home.initialStateVersion = lib.mkOption {
       type = lib.types.str;

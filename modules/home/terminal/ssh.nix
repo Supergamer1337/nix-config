@@ -9,6 +9,9 @@
       roctimFile = "~/.ssh/roctim_git";
     in {
       enable = true;
+
+      addKeysToAgent = "yes";
+
       matchBlocks = lib.mkIf (osConfig.profiles.work.enable) {
         "github-roctim" = {
           hostname = "github.com";

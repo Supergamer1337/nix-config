@@ -53,6 +53,14 @@
 
     # Enable pam module for hyprlock
     security.pam.services.hyprlock = {};
+
+    # Fix for keyring
+    services.gnome.gnome-keyring.enable = true;
+    security.pam.services.greetd.enableGnomeKeyring = true;
+    security.pam.services.login.enableGnomeKeyring = true;
+
+    # Fix for ssh keys
+    programs.ssh.startAgent = true;
   };
 
 }

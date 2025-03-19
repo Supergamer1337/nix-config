@@ -58,6 +58,7 @@
       env = lib.mkMerge [
         [
           "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
+          "SSH_AUTH_SOCK,$XDG_RUNTIME_DIR/ssh-agent"
         ]
 
         (lib.mkIf (osConfig.systemSettings.hardware.gpu.vendor == "nvidia") [

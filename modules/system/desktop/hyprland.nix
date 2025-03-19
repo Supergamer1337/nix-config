@@ -4,6 +4,8 @@
 
   options = {
     systemSettings.desktop.hyprland = {
+      enable = lib.mkEnableOption "Enable Hyprland desktop";
+
       monitors = lib.mkOption {
         default = [ ", preferred, auto, 1" ];
         description = "Configure monitors for Hyprland";
@@ -17,7 +19,8 @@
     };
   };
 
-  config = lib.mkIf (config.systemSettings.desktop.enable == "hyprland") {
+  config = lib.mkIf (config.systemSettings.desktop.hyprland.enable) {
+    systemSettings.desktop.headless = false;
     programs.hyprland.enable = true;
 
     xdg.portal = {
@@ -61,6 +64,18 @@
 
     # Fix for ssh keys
     programs.ssh.startAgent = true;
+
+    # Setup display manager
+    services.greetd = {
+      enable = true;
+      settings = rec {
+        initial_session = {
+          command = "Hyprland";
+          user = config.userSettings.username;
+        };
+        default_session = initial_session;
+      };
+    };
   };
 
 }

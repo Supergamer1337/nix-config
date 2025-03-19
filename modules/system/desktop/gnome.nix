@@ -2,15 +2,21 @@
 
 {
 
-  options = {};
+  options = {
+    systemSettings.desktop.gnome = {
+      enable = lib.mkEnableOption "Enable GNOME desktop";
+    };
+  };
 
-  config = lib.mkIf (config.systemSettings.desktop.enable == "gnome") {
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
+  config = lib.mkIf (config.systemSettings.desktop.gnome.enable) {
+    systemSettings.desktop.headless = false;
 
-    # Enable the GNOME Desktop Environment.
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+    # Enable the X11 windowing system and GNOME desktop environment.
+    services.xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+    };
 
     # Configure keymap in X11
     services.xserver.xkb = {

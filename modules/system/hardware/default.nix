@@ -54,6 +54,6 @@
       xone.enable = config.profiles.gaming.enable;
     };
 
-    services.blueman.enable = (config.systemSettings.desktop.enable == "hyprland" && config.systemSettings.hardware.bluetooth.enable);
+    services.blueman.enable = (config.systemSettings.desktop.hyprland.enable && config.systemSettings.hardware.bluetooth.enable);
   };
 }

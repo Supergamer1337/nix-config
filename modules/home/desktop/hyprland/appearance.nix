@@ -4,7 +4,7 @@
 
   options = {};
 
-  config = lib.mkIf (osConfig.systemSettings.desktop.enable == "hyprland") {
+  config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
     wayland.windowManager.hyprland.settings = {
       general = {
         gaps_in = 5;

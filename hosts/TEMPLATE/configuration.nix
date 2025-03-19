@@ -16,6 +16,8 @@
   systemSettings = {
     name = "%MACHINE_NAME%"; 
     theme = "None";
+    
+    # desktop.hyprland.enable = true;
 
     # hardware = {
     #   cpu.vendor = "%CPU_VENDOR%"; # intel or amd
@@ -27,6 +29,7 @@
     name = "%FULL_NAME%";
     username = "%USERNAME%";
     email = "%EMAIL%";
+    image = ../../resources/user/images/doge-transparent.png;
   };
 
   profiles = {

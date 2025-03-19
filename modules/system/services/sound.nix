@@ -4,7 +4,7 @@
   options = {
     services.sound.enable = lib.mkOption {
       type = lib.types.bool;
-      default = if config.systemSettings.desktop.enable != "none" then true else false;
+      default = if !config.systemSettings.desktop.headless then true else false;
       description = "Enable sound";
     };
   };

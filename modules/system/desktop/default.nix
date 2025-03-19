@@ -2,17 +2,15 @@
 
 {
   imports = [
-    ./displayManagers.nix
     ./gnome.nix
     ./hyprland.nix
     ./kde.nix
   ];
 
   options = {
-    systemSettings.desktop.enable = lib.mkOption {
-      type = lib.types.enum [ "gnome" "kde" "hyprland" "none" ];
-      default = "none";
-      description = "Which desktop environment to use. None will make the system headless.";
+    systemSettings.desktop.headless = lib.mkOption {
+      default = true;
+      description = "Helper variable to determine if the system is headless. Should not be set directly in the configuration.";
     };
   };
 

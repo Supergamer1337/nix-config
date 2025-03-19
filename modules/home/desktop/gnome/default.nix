@@ -10,11 +10,11 @@
 
   options = {};
 
-  config = lib.mkIf (osConfig.systemSettings.desktop.enable == "gnome") {
+  config = lib.mkIf (osConfig.systemSettings.desktop.gnome.enable) {
     home.packages = with pkgs; [
       dconf2nix # Generate .nix files from dconf
     ];
 
-    dconf.settings = lib.mkIf (!(osConfig.systemSettings.desktop.enable == "gnome")) (lib.mkForce {});
+    dconf.settings = lib.mkIf (!(osConfig.systemSettings.desktop.gnome.enable)) (lib.mkForce {});
   };
 }

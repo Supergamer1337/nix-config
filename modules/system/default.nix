@@ -46,7 +46,7 @@
 
   config = {
     # Enable CUPS to print documents.
-    services.printing.enable = lib.mkIf (config.systemSettings.desktop.enable != "none") true;
+    services.printing.enable = lib.mkIf (!config.systemSettings.desktop.headless) true;
 
     time.hardwareClockInLocalTime = config.systemSettings.dualBoot.enable;
 

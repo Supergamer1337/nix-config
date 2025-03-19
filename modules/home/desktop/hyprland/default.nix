@@ -17,7 +17,7 @@
 
   options = {};
 
-  config = lib.mkIf (osConfig.systemSettings.desktop.enable == "hyprland") {
+  config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
     wayland.windowManager.hyprland.enable = true;
 
     services.hyprpaper.enable = true;
@@ -29,9 +29,8 @@
     wayland.windowManager.hyprland.settings = {
       exec-once =
       # Want to minimize the amount of time before hyprlock kicks in, therefore it is first in the list
-      lib.optional (osConfig.systemSettings.desktop.displayManager == "greetd") "hyprlock" ++
-      [ 
-      "hyprpaper" "hypridle" "mako" "waybar" "blueman-applet" "nm-applet --indicator"
+      [
+      "hyprlock" "hyprpaper" "hypridle" "mako" "waybar" "blueman-applet" "nm-applet --indicator"
       "systemctl --user start hyprpolkitagent"
 
       # Autostart programs

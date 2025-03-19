@@ -12,7 +12,7 @@
       config.allowUnfree = true;
       system = pkgs.system; 
     };
-  in lib.mkIf (osConfig.systemSettings.desktop.enable != "none") {
+  in lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
 
     home.packages = with pkgs; lib.mkMerge [
       # Always enabled

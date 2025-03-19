@@ -4,7 +4,7 @@
 
   options = {};
 
-  config = lib.mkIf (osConfig.systemSettings.desktop.enable == "hyprland") {  
+  config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {  
     stylix.targets.waybar.enable = false;
 
     programs.waybar = {

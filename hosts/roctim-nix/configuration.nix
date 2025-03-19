@@ -12,10 +12,7 @@
     name = "roctim-nix"; 
     theme = "catppuccin";
 
-    desktop = {
-      displayManager = "gdm";
-      enable = "hyprland";
-    };
+    desktop.hyprland.enable = true;
 
     hardware = {
       cpu.vendor = "intel";
@@ -37,6 +34,7 @@
     name = "Felix Bjerhem Aronsson";
     username = "felbjar";
     email = "felix.b.aronsson@gmail.com";
+    image = ../../resources/user/images/doge-transparent.png;
   };
 
   # Profiles

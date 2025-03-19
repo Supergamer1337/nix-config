@@ -3,7 +3,7 @@
 {
   options = {};
 
-  config = lib.mkIf (osConfig.systemSettings.desktop.enable != "none") {
+  config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
     programs.alacritty = {
       enable = true;
       settings = {

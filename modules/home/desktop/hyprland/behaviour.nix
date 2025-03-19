@@ -4,7 +4,7 @@
 
   options = {};
 
-  config = lib.mkIf (osConfig.systemSettings.desktop.enable == "hyprland") {
+  config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
     wayland.windowManager.hyprland.settings = {
       general = {
         resize_on_border = false;

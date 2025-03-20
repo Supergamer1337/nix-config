@@ -58,7 +58,8 @@
         # Media
         #plex-desktop
         plex-fix.plex-desktop
-        nur.repos.nltch.spotify-adblock
+        #nur.repos.nltch.spotify-adblock
+        (if osConfig.systemSettings.desktop.hyprland.enable then spotifywm else spotify)
       ])
 
       # Gaming profile

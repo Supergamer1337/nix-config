@@ -14,6 +14,7 @@
           ll = "ls -l";
           la = "ls -la";
           cd = "z";
+          nixc = "cd ${osConfig.systemSettings.configDir}"; 
       };
 
       history = {

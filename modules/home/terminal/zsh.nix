@@ -26,10 +26,6 @@
         enable = true;
         plugins = [ "git" "direnv" ];
       };
-
-      initExtra = ''
-        fastfetch
-      '';
     };
 
     programs.oh-my-posh = {

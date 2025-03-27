@@ -18,6 +18,7 @@
   options = {};
 
   config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
+
     wayland.windowManager.hyprland.enable = true;
 
     services.hyprpaper.enable = true;
@@ -25,6 +26,15 @@
     programs.wofi.enable = true;
 
     services.network-manager-applet.enable = true;
+
+    # Fix for missing GTK app icons
+    gtk = {
+      enable = true;
+      iconTheme = {
+        package = pkgs.adwaita-icon-theme;
+        name = "Adwaita";
+      };
+    };
 
     wayland.windowManager.hyprland.settings = {
       exec-once =

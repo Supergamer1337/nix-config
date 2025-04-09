@@ -65,6 +65,7 @@
       # Gaming profile
       (lib.mkIf (osConfig.profiles.gaming.enable) [
         torzu
+	      dolphin-emu
       ])
     ];
   };

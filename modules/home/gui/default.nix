@@ -64,8 +64,9 @@
 
       # Gaming profile
       (lib.mkIf (osConfig.profiles.gaming.enable) [
-        torzu
-	      dolphin-emu
+        unstable.torzu
+	      unstable.dolphin-emu
+        unstable.cemu
       ])
     ];
   };

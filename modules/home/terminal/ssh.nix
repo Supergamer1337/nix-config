@@ -12,28 +12,37 @@
 
       addKeysToAgent = "yes";
 
-      matchBlocks = lib.mkIf (osConfig.profiles.work.enable) {
-        "github-roctim" = {
-          hostname = "github.com";
-          identityFile = roctimFile;
-        };
-
+      matchBlocks = {
         "github.com" = {
           hostname = "github.com";
           identityFile = standardFile;
         };
 
-        "roctim-beta" = {
+        "skyraid" = lib.mkIf (osConfig.systemSettings.services.tailscale.enable && osConfig.profiles.personal.enable) {
+          hostname = "10.69.69.69";
+          user = "root";
+          identityFile = standardFile;
+        };
+
+        ###### Work profile ######
+
+        "github-roctim" = lib.mkIf (osConfig.profiles.work.enable) {
+          hostname = "github.com";
+          identityFile = roctimFile;
+        };
+
+        "roctim-beta" = lib.mkIf (osConfig.profiles.work.enable) {
           hostname = "165.227.3.78";
           user = "root";
           identityFile = standardFile;
         };
 
-        "roctim-prod" = {
+        "roctim-prod" = lib.mkIf (osConfig.profiles.work.enable) {
           hostname = "167.99.171.160";
           user = "root";
           identityFile = standardFile;
         };
+
       };
     };
   };

@@ -39,7 +39,6 @@
       description = config.userSettings.name;
       extraGroups = lib.mkMerge [
         [ "networkmanager" "wheel" ] 
-        (lib.mkIf (config.profiles.dev.enable && config.virtualisation.docker.enable) [ "docker" ])
       ];
     };
 

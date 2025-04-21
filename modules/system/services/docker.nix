@@ -4,6 +4,12 @@
   options = {};
 
   config = {
-    virtualisation.docker.enable = lib.mkDefault true;
+    virtualisation.docker = {
+      enable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
   };
 }

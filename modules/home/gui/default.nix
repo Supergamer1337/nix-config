@@ -7,12 +7,7 @@
 
   options = {};
 
-  config = let 
-    plex-fix = import inputs.plex-fix {
-      config.allowUnfree = true;
-      system = pkgs.system; 
-    };
-  in lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
+  config = lib.mkIf (!osConfig.systemSettings.desktop.headless) {
 
     home.packages = with pkgs; lib.mkMerge [
       # Always enabled
@@ -56,10 +51,8 @@
         signal-desktop
 
         # Media
-        #plex-desktop
-        plex-fix.plex-desktop
-        #nur.repos.nltch.spotify-adblock
-        (if osConfig.systemSettings.desktop.hyprland.enable then spotifywm else spotify)
+        unstable.plex-desktop
+        nur.repos.nltch.spotify-adblock
       ])
 
       # Gaming profile

@@ -75,11 +75,9 @@
 
 		# NUR - Nix User Repository
 		nur = {
-			url = "github:nix-community/NUR";
+			# Pinned for this version to fix an issue with spotify-adblock
+			url = "github:nix-community/NUR/a096d1fd69e90b41dff339a54338b6ee45cc94ee";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-
-		# Temporary plex source to fix hardware decoding issues
-		plex-fix.url = "github:detroyejr/nixpkgs/plex-desktop-dependency-cleanup";
 	};
 }

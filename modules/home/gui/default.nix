@@ -63,6 +63,7 @@
         unstable.torzu
 	      unstable.dolphin-emu
         unstable.cemu
+        unstable.retroarch-full
       ])
     ];
   };

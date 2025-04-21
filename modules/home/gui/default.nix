@@ -53,6 +53,9 @@
         # Media
         unstable.plex-desktop
         nur.repos.nltch.spotify-adblock
+
+        # Remote access windows machines
+        parsec-bin
       ])
 
       # Gaming profile

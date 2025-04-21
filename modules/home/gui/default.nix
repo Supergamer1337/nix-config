@@ -22,6 +22,7 @@
         # Utils
         bitwarden-desktop
         obsidian
+        seafile-client
       ]
         
       # Work profile
@@ -61,9 +62,17 @@
       # Gaming profile
       (lib.mkIf (osConfig.profiles.gaming.enable) [
         unstable.torzu
-	      unstable.dolphin-emu
         unstable.cemu
-        unstable.retroarch-full
+
+        (retroarch.override {
+          cores = with libretro; [
+            # Wii/Gamecube
+            dolphin
+
+            # Gameboy
+            vba-m    
+          ];
+        })
       ])
     ];
   };

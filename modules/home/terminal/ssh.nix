@@ -7,6 +7,7 @@
     programs.ssh = let
       standardFile = "~/.ssh/id_ed25519";
       roctimFile = "~/.ssh/roctim_git";
+      eloquentServerFile = "~/.ssh/eloquent_server";
     in {
       enable = true;
 
@@ -22,6 +23,12 @@
           hostname = "10.69.69.69";
           user = "root";
           identityFile = standardFile;
+        };
+        
+        "eloquent-server" = {
+          hostname = "79.76.49.90";
+          user = "root";
+          identityFile = eloquentServerFile;
         };
 
         ###### Work profile ######

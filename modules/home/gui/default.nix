@@ -27,7 +27,6 @@
         
       # Work profile
       (lib.mkIf (osConfig.profiles.work.enable) [
-        (jetbrains.plugins.addPlugins jetbrains.pycharm-professional ["github-copilot"])
         dbeaver-bin
         whatsapp-for-linux
 
@@ -37,9 +36,6 @@
 
       # Dev profile
       (lib.mkIf (osConfig.profiles.dev.enable) [
-        (jetbrains.plugins.addPlugins jetbrains.rust-rover ["github-copilot"])
-        (jetbrains.plugins.addPlugins jetbrains.goland ["github-copilot"])
-        (jetbrains.plugins.addPlugins jetbrains.clion ["github-copilot"])
         dbeaver-bin
       ])
 
@@ -50,6 +46,7 @@
         caprine-bin
         vesktop # Discord, modded.
         signal-desktop
+        whatsapp-for-linux
 
         # Media
         unstable.plex-desktop

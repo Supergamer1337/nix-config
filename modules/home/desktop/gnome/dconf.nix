@@ -1,10 +1,10 @@
 # Generated via dconf2nix: https://github.com/nix-commmunity/dconf2nix
-{ lib, ... }:
+{ lib, osConfig, ... }:
 
 with lib.hm.gvariant;
 
 {
-  dconf.settings = {
+  dconf.settings = lib.mkIf (osConfig.systemSettings.desktop.gnome.enable) {
     "org/gnome/control-center" = {
       last-panel = "background";
       window-state = mkTuple [ 980 640 false ];

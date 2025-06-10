@@ -5,9 +5,7 @@
 
 # It can be used as it is right now, but it's recommended to use the setup script
 { config, lib, pkgs, inputs, ...}: 
-let
-  username = "supergamer1337";
-in {
+rec {
   imports =
     [ 
       ../../modules/system
@@ -19,7 +17,7 @@ in {
 
   userSettings = {
     name = "Feilx Bjerhem Aronsson";
-    username = username;
+    username = "supergamer1337";
     email = "felix.b.aronsson@gmail.com";
   };
 
@@ -27,13 +25,13 @@ in {
     personal.enable = true;
     dev.enable = true;
     gaming.enable = false;
-    work.enable = false;
+    work.enable = true;
   };
 
   # WSL Specific settings
-  wsl = {
+  wsl ={
     enable = true;
-    defaultUser = username;
+    defaultUser = userSettings.username;
     docker-desktop.enable = true;
   };
   programs.nix-ld = {

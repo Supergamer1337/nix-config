@@ -41,7 +41,7 @@
   profiles = {
     work.enable = true;
     dev.enable = true;
-    gaming.enable = true;
+    gaming.enable = false;
     personal.enable = true;
   };
 

@@ -58,14 +58,14 @@
 	};
 
 	inputs = {
-		nixpkgs.url = "nixpkgs/nixos-24.11";
+		nixpkgs.url = "nixpkgs/nixos-25.05";
 		unstable.url = "nixpkgs/nixpkgs-unstable";
 		home-manager = {
-			url = "github:nix-community/home-manager/release-24.11";
+			url = "github:nix-community/home-manager/release-25.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		# Theme the entire system
-		stylix.url = "github:danth/stylix/release-24.11";
+		stylix.url = "github:danth/stylix/release-25.05";
 
 		# For WSL
 		wsl.url = "github:nix-community/NixOS-WSL/main";

@@ -50,7 +50,7 @@
 
         # Media
         unstable.plex-desktop
-        nur.repos.nltch.spotify-adblock
+        #nur.repos.nltch.spotify-adblock - Hash mismatch
 
         # Remote access windows machines
         parsec-bin
@@ -61,15 +61,13 @@
         # unstable.torzu - Taken down due to legal issues.
         unstable.cemu
 
-        (retroarch.override {
-          cores = with libretro; [
+        (retroarch.withCores (cores: with cores; [
             # Wii/Gamecube
             dolphin
 
             # Gameboy
             vba-m    
-          ];
-        })
+        ]))
       ])
     ];
   };

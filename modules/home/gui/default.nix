@@ -58,7 +58,7 @@
 
       # Gaming profile
       (lib.mkIf (osConfig.profiles.gaming.enable) [
-        unstable.torzu
+        # unstable.torzu - Taken down due to legal issues.
         unstable.cemu
 
         (retroarch.override {

@@ -17,7 +17,7 @@
         protonvpn-gui
 
 	      # Development
-        unstable.vscode-fhs
+        unstable.vscode
 
         # Utils
         bitwarden-desktop

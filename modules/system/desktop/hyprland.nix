@@ -37,6 +37,7 @@
       hypridle
       hyprpolkitagent
       brightnessctl
+      playerctl
       networkmanagerapplet
 
       # Extra programs for hyprland

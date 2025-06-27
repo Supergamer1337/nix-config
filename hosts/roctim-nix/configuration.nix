@@ -27,7 +27,8 @@
     };
   };
 
-  time.timeZone = "Europe/Stockholm";
+  # Dynamically set timezone, as it is a laptop
+  services.automatic-timezoned.enable = true;
 
   # User settings
   userSettings = {

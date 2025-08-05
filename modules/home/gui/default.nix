@@ -23,6 +23,7 @@
         bitwarden-desktop
         obsidian
         seafile-client
+        ticktick
       ]
         
       # Work profile

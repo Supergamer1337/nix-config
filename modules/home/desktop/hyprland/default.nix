@@ -50,7 +50,7 @@
       "[workspace 9 silent] whatsapp-for-linux" 
       "[workspace 9 silent] caprine" 
 
-      "[workspace 8 silent] obsidian"
+      "[workspace 8 silent] ticktick"
 
       ] 
       ++ lib.optional (osConfig.systemSettings.hardware.openrgb.enable) "openrgb";

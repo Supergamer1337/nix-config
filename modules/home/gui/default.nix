@@ -52,6 +52,7 @@
         # Media
         unstable.plex-desktop
         #nur.repos.nltch.spotify-adblock - Hash mismatch
+        youtube-music
 
         # Remote access windows machines
         parsec-bin

@@ -45,6 +45,14 @@
 				] ++ commonModules;
 			};
 
+			tapo-nix = lib.nixosSystem {
+				inherit system;
+				inherit specialArgs;
+				modules = [ 
+					./hosts/tapo-nix/configuration.nix
+				] ++ commonModules;
+			};
+
 			TEMPLATE = lib.nixosSystem {
 				inherit system;
 				inherit specialArgs;

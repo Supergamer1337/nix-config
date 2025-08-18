@@ -22,8 +22,8 @@
         # Utils
         bitwarden-desktop
         obsidian
-        seafile-client
         ticktick
+        nextcloud-client
       ]
         
       # Work profile

@@ -27,8 +27,15 @@
     hardware = {
       cpu.vendor = "intel"; # intel or amd
       gpu.vendor = "intel"; # nvidia or amd or intel
+
+      laptop = {
+        enable = true;
+      };
     };
   };
+
+  # Dynamically set timezone, as it is a laptop
+  services.automatic-timezoned.enable = true;
 
   userSettings = {
     name = "Felix Bjerhem Aronsson";

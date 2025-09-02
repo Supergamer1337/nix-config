@@ -20,7 +20,7 @@
     desktop.hyprland = {
       enable = true;
       monitors = [
-        "eDP-1,2880x1800@120,0x0hw,2"
+        "eDP-1,2880x1800@120,0x0hw,1.5"
       ];
     };
 

@@ -7,6 +7,7 @@
     programs.ssh = let
       standardFile = "~/.ssh/id_ed25519";
       roctimFile = "~/.ssh/roctim_git";
+      ordineFile = "~/.ssh/ordine_git";
       eloquentServerFile = "~/.ssh/eloquent_server";
     in {
       enable = true;
@@ -33,6 +34,13 @@
 
         ###### Work profile ######
 
+        ### Ordine ###
+        "github-ordine" = lib.mkIf (osConfig.profiles.work.enable) {
+          hostname = "github.com";
+          identityFile = ordineFile;
+        };
+
+        ### Roctim ###
         "github-roctim" = lib.mkIf (osConfig.profiles.work.enable) {
           hostname = "github.com";
           identityFile = roctimFile;

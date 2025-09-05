@@ -51,6 +51,34 @@
     work.enable = true;
   };
 
+  specialisation = {
+    work-setup.configuration = {
+      systemSettings.desktop.hyprland = {
+        monitors = [
+          "eDP-1,2880x1800@120,0x0hw,1.5"
+          "DP-1,3440x1440@100,1920x0,1"
+        ];
+
+        workspaces = [
+          ### LAPTOP MONITOR ###
+          "7, monitor:eDP-1,persistent:true,default:true"
+          "8, monitor:eDP-1,persistent:true"
+          "9, monitor:eDP-1,persistent:true"
+          "10, monitor:eDP-1,persistent:true"
+
+          ### ULTRAWIDE MONITOR ### 
+          "1,monitor:DP-1,persistent:true,default:true"
+          "2,monitor:DP-1,persistent:true"
+          "3,monitor:DP-1,persistent:true"
+          "4,monitor:DP-1,persistent:true,default:true"
+          "5,monitor:DP-1,persistent:true"
+          "6,monitor:DP-1,persistent:true"
+        ];
+      };
+    };
+  };
+
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

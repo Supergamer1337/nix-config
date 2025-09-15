@@ -51,6 +51,12 @@
     work.enable = true;
   };
 
+  programs.adb.enable = true;
+  users.users.felbjar.extraGroups = [ "adbusers" ];
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
+
   specialisation = {
     work-setup.configuration = {
       systemSettings.desktop.hyprland = {

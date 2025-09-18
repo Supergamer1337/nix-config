@@ -24,6 +24,9 @@
         obsidian
         ticktick
         nextcloud-client
+
+        # One school project
+        unityhub
       ]
         
       # Work profile

@@ -81,6 +81,8 @@
           "6,monitor:DP-1,persistent:true"
         ];
       };
+
+      networking.firewall.allowedTCPPorts = [ 8000 6001 ];
     };
   };
 

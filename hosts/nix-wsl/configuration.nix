@@ -13,6 +13,7 @@ rec {
 
   systemSettings = {
     name = "nix-wsl"; 
+    theme = "catppuccin";
   };
 
   userSettings = {

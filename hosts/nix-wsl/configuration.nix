@@ -35,10 +35,6 @@ rec {
     defaultUser = userSettings.username;
     docker-desktop.enable = true;
   };
-  programs.nix-ld = {
-    enable = true;
-    package = pkgs.nix-ld-rs;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -9,5 +9,7 @@
 
   options = {};
 
-  config = {};
+  config = {
+    services.joycond.enable = config.profiles.gaming.enable;
+  };
 }

@@ -18,7 +18,7 @@
     theme = "catppuccin";
     
     desktop.hyprland = {
-      enable = true;
+      enable = lib.mkDefault true;
       monitors = [
         "eDP-1,2880x1800@120,0x0hw,1.5"
       ];
@@ -47,7 +47,7 @@
   profiles = {
     personal.enable = true;
     dev.enable = true;
-    gaming.enable = false;
+    gaming.enable = true;
     work.enable = true;
   };
 
@@ -83,6 +83,15 @@
       };
 
       networking.firewall.allowedTCPPorts = [ 8000 6001 ];
+    };
+
+    gnome.configuration = {
+      systemSettings = {
+        desktop = {
+          hyprland.enable = lib.mkForce false;
+          gnome.enable = true;
+        };
+      };
     };
   };
 

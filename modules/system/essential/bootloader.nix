@@ -12,5 +12,6 @@
       efiSupport = true;
     };
     boot.loader.efi.canTouchEfiVariables = lib.mkDefault true;
+    boot.plymouth.enable = true;
   };
 }

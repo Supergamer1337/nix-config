@@ -57,6 +57,16 @@
     pkgs.android-udev-rules
   ];
 
+  environment.sessionVariables.ALSA_CONFIG_UCM2 = let
+    # Updated version to hopefully fix issues with sound 
+    alsa-ucm-conf = pkgs.fetchFromGitHub {
+      owner  = "alsa-project";
+      repo   = "alsa-ucm-conf";
+      rev    = "b4e9b243d0de6cea31432670530136f6f47af6a7";
+      sha256 = "sha256-nuSzPtQclOM9sLbrj+bJSUUhkUat6k1mTX5656IJfpo=";
+    };
+  in "${alsa-ucm-conf}/ucm2";
+
   specialisation = {
     work-setup.configuration = {
       systemSettings.desktop.hyprland = {

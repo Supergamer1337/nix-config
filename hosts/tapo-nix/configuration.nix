@@ -17,12 +17,14 @@
     name = "tapo-nix"; 
     theme = "catppuccin";
     
-    desktop.hyprland = {
-      enable = lib.mkDefault true;
-      monitors = [
-        "eDP-1,2880x1800@120,0x0hw,1.5"
-      ];
-    };
+    # desktop.hyprland = {
+    #   enable = lib.mkDefault true;
+    #   monitors = [
+    #     "eDP-1,2880x1800@120,0x0hw,1.5"
+    #   ];
+    # };
+
+    desktop.cosmic.enable = lib.mkDefault true;
 
     hardware = {
       cpu.vendor = "intel"; # intel or amd
@@ -99,6 +101,7 @@
       systemSettings = {
         desktop = {
           hyprland.enable = lib.mkForce false;
+          cosmic.enable = lib.mkForce false;
           gnome.enable = true;
         };
       };

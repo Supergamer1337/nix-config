@@ -5,6 +5,7 @@
     ./gnome.nix
     ./hyprland.nix
     ./kde.nix
+    ./cosmic.nix
   ];
 
   options = {

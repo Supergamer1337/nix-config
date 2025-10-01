@@ -14,6 +14,7 @@
 
     ./fonts.nix
     ./user.nix
+    ./overlays.nix
   ];
 
   options = {
@@ -67,16 +68,6 @@
     nixpkgs = {
       # Allow proprietary software
       config.allowUnfree = true;
-
-      # Setup an overlay for pkgs.unstable
-      overlays = [
-        (final: _: {
-          unstable = import inputs.unstable {
-            inherit (final.stdenv.hostPlatform) system;
-            inherit (final) config;
-          };
-        })
-      ];
     };
 
     # Used to run dynamically linked binaries.

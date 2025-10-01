@@ -12,6 +12,6 @@
       efiSupport = true;
     };
     boot.loader.efi.canTouchEfiVariables = lib.mkDefault true;
-    boot.plymouth.enable = true;
+    boot.plymouth.enable = false; # May turn on again if it plays well with Cosmic
   };
 }

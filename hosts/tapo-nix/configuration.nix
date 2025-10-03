@@ -94,7 +94,6 @@
         ];
       };
 
-      networking.firewall.allowedTCPPorts = [ 8000 6001 ];
     };
 
     gnome.configuration = {
@@ -108,6 +107,7 @@
     };
   };
 
+  networking.firewall.allowedTCPPorts = [ 8000 6001 ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

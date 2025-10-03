@@ -17,5 +17,10 @@
     # To enable Gnome Keyring for password management in Cosmic
     security.pam.services.cosmic.enableGnomeKeyring = true;
     services.gnome.gnome-keyring.enable = true;
+
+    environment.sessionVariables = {
+      # Enable Wayland support for Electron apps in Cosmic
+      NIXOS_OZONE_WL = "1";
+    };
   };
 }

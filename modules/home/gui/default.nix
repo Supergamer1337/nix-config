@@ -64,7 +64,7 @@
       # Gaming profile
       (lib.mkIf (osConfig.profiles.gaming.enable) [
         # unstable.torzu - Taken down due to legal issues.
-        unstable.cemu
+        cemu
 
         (retroarch.withCores (cores: with cores; [
             # Wii/Gamecube

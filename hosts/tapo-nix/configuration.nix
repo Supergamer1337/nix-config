@@ -107,7 +107,7 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 8000 6001 ];
+  networking.firewall.allowedTCPPorts = [ 8000 6001 80 ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

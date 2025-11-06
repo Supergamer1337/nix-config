@@ -17,8 +17,10 @@
     name = "SuperNix1337"; 
     theme = "catppuccin";
 
+    desktop.cosmic.enable = true;
+
     desktop.hyprland = {
-      enable = true;
+      enable = false;
 
       monitors = [
         "DP-3, 2560x1440@120, 1920x0, 1"
@@ -48,7 +50,7 @@
     dualBoot.enable = true;
 
     hardware = {
-      openrgb.enable = true;
+      openrgb.enable = false;
       cpu.vendor = "amd";
       gpu.vendor = "nvidia";
 

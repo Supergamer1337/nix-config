@@ -3,6 +3,7 @@
 {
   imports = [
     ./steam.nix
+    ./jetbrains-toolbox.nix
   ];
 
   options = {};

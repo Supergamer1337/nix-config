@@ -73,7 +73,6 @@
     # Used to run dynamically linked binaries.
     programs.nix-ld = {
       enable = true;
-      package = pkgs.nix-ld-rs;
     };
 
   };

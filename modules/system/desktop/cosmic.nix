@@ -21,6 +21,7 @@
     environment.sessionVariables = {
       # Enable Wayland support for Electron apps in Cosmic
       NIXOS_OZONE_WL = "1";
+      SDL_VIDEODRIVER = "wayland";
     };
   };
 }

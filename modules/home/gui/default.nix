@@ -8,7 +8,6 @@
   options = {};
 
   config = lib.mkIf (!osConfig.systemSettings.desktop.headless) {
-
     home.packages = with pkgs; lib.mkMerge [
       # Always enabled
       [
@@ -41,6 +40,7 @@
       # Dev profile
       (lib.mkIf (osConfig.profiles.dev.enable) [
         dbeaver-bin
+        jetbrains-toolbox
       ])
 
       # Personal profile

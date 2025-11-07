@@ -75,5 +75,8 @@
       enable = true;
     };
 
+    # Enable envfs to make /bin stuff work
+    services.envfs.enable = true;
+
   };
 }

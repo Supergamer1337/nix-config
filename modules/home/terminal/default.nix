@@ -23,7 +23,7 @@
 	      wget
 
         # Development
-        nil # Nix LSP
+        nixd # Nix LSP
       ]
 
       # Work profile

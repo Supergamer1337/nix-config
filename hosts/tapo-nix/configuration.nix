@@ -34,6 +34,12 @@
         enable = true;
       };
     };
+
+    networking = {
+      nameservers = {
+        enable = true;
+      };
+    };
   };
 
   # Dynamically set timezone, as it is a laptop

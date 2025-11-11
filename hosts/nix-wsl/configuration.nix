@@ -14,6 +14,10 @@ rec {
   systemSettings = {
     name = "nix-wsl"; 
     theme = "catppuccin";
+
+    networking = {
+      resolved.enable = false;
+    };
   };
 
   userSettings = {

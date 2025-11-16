@@ -1,17 +1,15 @@
 {
     "nix.serverSettings": {
         "nixd": {
-            // USE THE PKGS FROM YOUR SYSTEM CONFIGURATION (INCLUDES OVERLAYS)
             "nixpkgs": {
-                "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.tapo-nix.pkgs"
+                "expr": "(import ./.vscode/nixd-host.nix).pkgs"
             },
-            // MODULE OPTION COMPLETIONS (NixOS + Home Manager)
             "options": {
                 "nixos": {
-                    "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.tapo-nix.options"
+                    "expr": "(import ./.vscode/nixd-host.nix).options"
                 },
                 "home-manager": {
-                    "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.tapo-nix.options.home-manager.users.type.getSubOptions []"
+                    "expr": "(import ./.vscode/nixd-host.nix).hmOptions"
                 }
             }
         }

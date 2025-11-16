@@ -1,8 +1,13 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   options = {
-    
+
   };
 
   config = lib.mkIf (config.systemSettings.theme == "catppuccin") {

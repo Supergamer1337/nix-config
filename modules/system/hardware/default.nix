@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -16,13 +21,22 @@
       };
 
       cpu.vendor = lib.mkOption {
-        type = lib.types.enum [ "intel" "amd" "unknown" ];
+        type = lib.types.enum [
+          "intel"
+          "amd"
+          "unknown"
+        ];
         default = "unknown";
         description = "The vendor of the CPU";
       };
 
       gpu.vendor = lib.mkOption {
-        type = lib.types.enum [ "nvidia" "amd" "intel" "unknown" ];
+        type = lib.types.enum [
+          "nvidia"
+          "amd"
+          "intel"
+          "unknown"
+        ];
         default = "unknown";
         description = "The vendor of the GPU";
       };
@@ -33,7 +47,7 @@
           type = lib.types.bool;
           default = true;
           description = "Enables battery saving features for the laptop";
-        }; 
+        };
         busIds = {
           intel = lib.mkOption {
             type = lib.types.str;
@@ -54,6 +68,8 @@
       xone.enable = config.profiles.gaming.enable;
     };
 
-    services.blueman.enable = (config.systemSettings.desktop.hyprland.enable && config.systemSettings.hardware.bluetooth.enable);
+    services.blueman.enable = (
+      config.systemSettings.desktop.hyprland.enable && config.systemSettings.hardware.bluetooth.enable
+    );
   };
 }

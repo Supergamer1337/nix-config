@@ -1,4 +1,10 @@
-{ config, lib, inputs, pkgs, ...}:
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -58,10 +64,15 @@
 
       # Enable cachix to speed up builds
       extra-substituters = [ "https://nix-community.cachix.org" ];
-      extra-trusted-public-keys = [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
+      extra-trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
 
-      # Enable flakes 
-      experimental-features = [ "nix-command" "flakes" ];
+      # Enable flakes
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
 
     # Configure nixpkgs

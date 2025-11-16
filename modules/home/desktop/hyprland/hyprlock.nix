@@ -1,8 +1,13 @@
-{ osConfig, lib, pkgs, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
 
-  options = {};
+  options = { };
 
   config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
     programs.hyprlock = {
@@ -26,7 +31,7 @@
 
         background = {
           monitor = "";
-          path = "${osConfig.stylix.image}"; 
+          path = "${osConfig.stylix.image}";
 
           blur_passes = 2;
           blur_size = 7;

@@ -4,19 +4,25 @@
 # with the actual values
 
 # It can be used as it is right now, but it's recommended to use the setup script
-{ config, lib, pkgs, inputs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules/system
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../modules/system
+  ];
 
   systemSettings = {
-    name = "tapo-nix"; 
+    name = "tapo-nix";
     theme = "catppuccin";
-    
+
     # desktop.hyprland = {
     #   enable = lib.mkDefault true;
     #   monitors = [
@@ -65,15 +71,17 @@
     pkgs.android-udev-rules
   ];
 
-  environment.sessionVariables.ALSA_CONFIG_UCM2 = let
-    # Updated version to hopefully fix issues with sound 
-    alsa-ucm-conf = pkgs.fetchFromGitHub {
-      owner  = "alsa-project";
-      repo   = "alsa-ucm-conf";
-      rev    = "b4e9b243d0de6cea31432670530136f6f47af6a7";
-      sha256 = "sha256-nuSzPtQclOM9sLbrj+bJSUUhkUat6k1mTX5656IJfpo=";
-    };
-  in "${alsa-ucm-conf}/ucm2";
+  environment.sessionVariables.ALSA_CONFIG_UCM2 =
+    let
+      # Updated version to hopefully fix issues with sound
+      alsa-ucm-conf = pkgs.fetchFromGitHub {
+        owner = "alsa-project";
+        repo = "alsa-ucm-conf";
+        rev = "b4e9b243d0de6cea31432670530136f6f47af6a7";
+        sha256 = "sha256-nuSzPtQclOM9sLbrj+bJSUUhkUat6k1mTX5656IJfpo=";
+      };
+    in
+    "${alsa-ucm-conf}/ucm2";
 
   specialisation = {
     work-setup.configuration = {
@@ -90,7 +98,7 @@
           "9, monitor:eDP-1,persistent:true"
           "10, monitor:eDP-1,persistent:true"
 
-          ### ULTRAWIDE MONITOR ### 
+          ### ULTRAWIDE MONITOR ###
           "1,monitor:DP-1,persistent:true,default:true"
           "2,monitor:DP-1,persistent:true"
           "3,monitor:DP-1,persistent:true"
@@ -113,7 +121,11 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 8000 6001 80 ];
+  networking.firewall.allowedTCPPorts = [
+    8000
+    6001
+    80
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

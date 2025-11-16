@@ -1,8 +1,12 @@
-
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  options = {};
+  options = { };
 
   config = {
     programs.nix-ld.libraries = with pkgs; [

@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ...}:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -7,7 +12,7 @@
     ./networking.nix
   ];
 
-  options = {};
+  options = { };
 
-  config = {};
+  config = { };
 }

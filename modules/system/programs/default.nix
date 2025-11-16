@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ...}:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -6,7 +11,7 @@
     ./jetbrains-toolbox.nix
   ];
 
-  options = {};
+  options = { };
 
   config = {
     # System level packages
@@ -16,14 +21,14 @@
       appimage-run # AppImage support
     ];
 
-    # Programs that should be configured at the system level 
+    # Programs that should be configured at the system level
     programs.nh = {
       enable = true;
       flake = config.systemSettings.configDir; # Location of the configuration flake
 
       # Automatic cleanup, essentially nix.gc
       clean.enable = true;
-      clean.extraArgs = "--keep-since 7d --keep 3"; 
+      clean.extraArgs = "--keep-since 7d --keep 3";
     };
 
     programs.direnv.enable = true;

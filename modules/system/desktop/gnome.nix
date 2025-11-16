@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
 
@@ -31,32 +36,39 @@
     };
 
     # Install relevant extensions
-    environment.systemPackages = with pkgs.gnomeExtensions; [
-      blur-my-shell
-      gsconnect
-      gnome-40-ui-improvements
-      appindicator
-    ]
-    ++ (with pkgs.gnomeExtensions; lib.optional config.systemSettings.services.tailscale.enable tailscale-qs)
-    ++ (with pkgs; [
-      gnome-tweaks
-    ]);
+    environment.systemPackages =
+      with pkgs.gnomeExtensions;
+      [
+        blur-my-shell
+        gsconnect
+        gnome-40-ui-improvements
+        appindicator
+      ]
+      ++ (
+        with pkgs.gnomeExtensions; lib.optional config.systemSettings.services.tailscale.enable tailscale-qs
+      )
+      ++ (with pkgs; [
+        gnome-tweaks
+      ]);
 
-    environment.gnome.excludePackages = (with pkgs; [
-      gnome-photos
-      gnome-tour
-      gedit
-      cheese
-      epiphany
-      geary # email reader
-      evince # document viewer
-      totem # video player
-      gnome-music
-      gnome-characters
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
-    ]);
+    environment.gnome.excludePackages = (
+      with pkgs;
+      [
+        gnome-photos
+        gnome-tour
+        gedit
+        cheese
+        epiphany
+        geary # email reader
+        evince # document viewer
+        totem # video player
+        gnome-music
+        gnome-characters
+        tali # poker game
+        iagno # go game
+        hitori # sudoku game
+        atomix # puzzle game
+      ]
+    );
   };
 }

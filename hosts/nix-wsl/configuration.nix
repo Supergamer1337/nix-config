@@ -4,15 +4,20 @@
 # with the actual values
 
 # It can be used as it is right now, but it's recommended to use the setup script
-{ config, lib, pkgs, inputs, ...}: 
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 rec {
-  imports =
-    [ 
-      ../../modules/system
-    ];
+  imports = [
+    ../../modules/system
+  ];
 
   systemSettings = {
-    name = "nix-wsl"; 
+    name = "nix-wsl";
     theme = "catppuccin";
 
     networking = {
@@ -34,7 +39,7 @@ rec {
   };
 
   # WSL Specific settings
-  wsl ={
+  wsl = {
     enable = true;
     defaultUser = userSettings.username;
     docker-desktop.enable = true;

@@ -1,7 +1,13 @@
-{ osConfig, config, lib, pkgs, ... }:
+{
+  osConfig,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  options = {};
+  options = { };
 
   config = {
     stylix.targets.wofi.enable = true;

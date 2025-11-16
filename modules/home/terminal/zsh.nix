@@ -1,7 +1,13 @@
-{ config, osConfig, pkgs, lib, ... }:
+{
+  config,
+  osConfig,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  options = {};
+  options = { };
 
   config = {
     programs.zsh = {
@@ -11,11 +17,11 @@
       syntaxHighlighting.enable = true;
 
       shellAliases = {
-          ll = "ls -l";
-          la = "ls -la";
-          cd = "z";
-          nixc = "cd ${osConfig.systemSettings.configDir}"; 
-          nixce = "code ${osConfig.systemSettings.configDir}";
+        ll = "ls -l";
+        la = "ls -la";
+        cd = "z";
+        nixc = "cd ${osConfig.systemSettings.configDir}";
+        nixce = "code ${osConfig.systemSettings.configDir}";
       };
 
       history = {
@@ -25,7 +31,10 @@
 
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "direnv" ];
+        plugins = [
+          "git"
+          "direnv"
+        ];
       };
     };
 

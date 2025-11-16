@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options = {
@@ -35,9 +40,11 @@
 
       nvidiaSettings = true;
 
-      package = if config.systemSettings.hardware.gpu.nvidia.betaDriver.enable
-      	then config.boot.kernelPackages.nvidiaPackages.beta
-      	else config.boot.kernelPackages.nvidiaPackages.stable;
+      package =
+        if config.systemSettings.hardware.gpu.nvidia.betaDriver.enable then
+          config.boot.kernelPackages.nvidiaPackages.beta
+        else
+          config.boot.kernelPackages.nvidiaPackages.stable;
 
       prime = lib.mkIf (config.systemSettings.hardware.laptop.enable) {
         intelBusId = config.systemSettings.hardware.laptop.busIds.intel;
@@ -52,15 +59,19 @@
       };
     };
 
-
-    environment.systemPackages = lib.mkIf (config.systemSettings.hardware.laptop.enable && config.systemSettings.hardware.laptop.battery.enable) [
-      (pkgs.writeScriptBin "nvidia-offload" ''
-        export __NV_PRIME_RENDER_OFFLOAD=1
-        export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-        export __GLX_VENDOR_LIBRARY_NAME=nvidia
-        export __VK_LAYER_NV_optimus=NVIDIA_only
-        exec "$@"
-      '')
-    ];
+    environment.systemPackages =
+      lib.mkIf
+        (
+          config.systemSettings.hardware.laptop.enable && config.systemSettings.hardware.laptop.battery.enable
+        )
+        [
+          (pkgs.writeScriptBin "nvidia-offload" ''
+            export __NV_PRIME_RENDER_OFFLOAD=1
+            export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+            export __GLX_VENDOR_LIBRARY_NAME=nvidia
+            export __VK_LAYER_NV_optimus=NVIDIA_only
+            exec "$@"
+          '')
+        ];
   };
 }

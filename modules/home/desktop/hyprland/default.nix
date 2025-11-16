@@ -1,4 +1,9 @@
-{ osConfig, lib, pkgs, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -15,7 +20,7 @@
     ./scripts
   ];
 
-  options = {};
+  options = { };
 
   config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
 
@@ -38,22 +43,28 @@
 
     wayland.windowManager.hyprland.settings = {
       exec-once =
-      # Want to minimize the amount of time before hyprlock kicks in, therefore it is first in the list
-      [
-      "hyprlock" "hyprpaper" "hypridle" "mako" "waybar" "blueman-applet" "nm-applet --indicator"
-      "systemctl --user start hyprpolkitagent"
+        # Want to minimize the amount of time before hyprlock kicks in, therefore it is first in the list
+        [
+          "hyprlock"
+          "hyprpaper"
+          "hypridle"
+          "mako"
+          "waybar"
+          "blueman-applet"
+          "nm-applet --indicator"
+          "systemctl --user start hyprpolkitagent"
 
-      # Autostart programs
-      "[workspace 10 silent] vesktop"
-      "[workspace 10 silent] slack"
+          # Autostart programs
+          "[workspace 10 silent] vesktop"
+          "[workspace 10 silent] slack"
 
-      "[workspace 9 silent] whatsapp-for-linux" 
-      "[workspace 9 silent] caprine" 
+          "[workspace 9 silent] whatsapp-for-linux"
+          "[workspace 9 silent] caprine"
 
-      "[workspace 8 silent] ticktick"
+          "[workspace 8 silent] ticktick"
 
-      ] 
-      ++ lib.optional (osConfig.systemSettings.hardware.openrgb.enable) "openrgb";
+        ]
+        ++ lib.optional (osConfig.systemSettings.hardware.openrgb.enable) "openrgb";
 
       windowrulev2 = [
         "idleinhibit fullscreen, class:^(*)$"

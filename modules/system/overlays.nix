@@ -1,10 +1,15 @@
-
-{ config, lib, inputs, pkgs, ...}:
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
-  imports = [];
+  imports = [ ];
 
-  options = {};
+  options = { };
 
   config = {
     nixpkgs.overlays = [

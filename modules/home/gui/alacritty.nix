@@ -1,7 +1,13 @@
-{ config, osConfig, pkgs, lib, ... }:
+{
+  config,
+  osConfig,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  options = {};
+  options = { };
 
   config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
     programs.alacritty = {

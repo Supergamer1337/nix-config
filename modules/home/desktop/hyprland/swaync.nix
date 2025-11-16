@@ -1,8 +1,13 @@
-{ osConfig, pkgs, lib, ... }:
+{
+  osConfig,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
 
-  options = {};
+  options = { };
 
   config = {
     services.swaync = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {

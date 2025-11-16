@@ -10,5 +10,5 @@ in
 {
   pkgs = flake.nixosConfigurations.${host}.pkgs;
   options = flake.nixosConfigurations.${host}.options;
-  hmOptions = flake.nixosConfigurations.${host}.options.home-manager.users.type.getSubOptions [];
+  hmOptions = flake.nixosConfigurations.${host}.options.home-manager.users.type.getSubOptions [ ];
 }

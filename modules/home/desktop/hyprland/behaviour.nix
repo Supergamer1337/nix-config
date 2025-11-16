@@ -1,8 +1,13 @@
-{ osConfig, lib, pkgs, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
 
-  options = {};
+  options = { };
 
   config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
     wayland.windowManager.hyprland.settings = {

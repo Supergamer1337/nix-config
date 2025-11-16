@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ...}:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -7,7 +12,7 @@
     ./tailscale.nix
   ];
 
-  options = {};
+  options = { };
 
   config = {
     services.joycond.enable = config.profiles.gaming.enable;

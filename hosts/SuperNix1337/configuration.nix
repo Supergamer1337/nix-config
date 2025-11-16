@@ -4,17 +4,23 @@
 # with the actual values
 
 # It can be used as it is right now, but it's recommended to use the setup script
-{ config, lib, pkgs, inputs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules/system
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../modules/system
+  ];
 
   systemSettings = {
-    name = "SuperNix1337"; 
+    name = "SuperNix1337";
     theme = "catppuccin";
 
     desktop.cosmic.enable = true;
@@ -31,15 +37,15 @@
       workspaces = [
         ### MAIN MONITOR ###
         "1,monitor:DP-3,persistent:true,default:true"
-        "2,monitor:DP-3,persistent:true" 
-        "3,monitor:DP-3,persistent:true" 
-        "4,monitor:DP-3,persistent:true" 
-        "5,monitor:DP-3,persistent:true" 
-        "6,monitor:DP-3,persistent:true" 
+        "2,monitor:DP-3,persistent:true"
+        "3,monitor:DP-3,persistent:true"
+        "4,monitor:DP-3,persistent:true"
+        "5,monitor:DP-3,persistent:true"
+        "6,monitor:DP-3,persistent:true"
 
         ### RIGHT MONITOR ###
         "7,monitor:DP-1,persistent:true,default:true"
-        "8,monitor:DP-1,persistent:true" 
+        "8,monitor:DP-1,persistent:true"
 
         ### LEFT MONITOR ###
         "9,monitor:DVI-D-1,persistent:true,default:true"

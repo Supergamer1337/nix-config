@@ -7,11 +7,19 @@ with lib.hm.gvariant;
   dconf.settings = lib.mkIf (osConfig.systemSettings.desktop.gnome.enable) {
     "org/gnome/control-center" = {
       last-panel = "background";
-      window-state = mkTuple [ 980 640 false ];
+      window-state = mkTuple [
+        980
+        640
+        false
+      ];
     };
 
     "org/gnome/desktop/app-folders" = {
-      folder-children = [ "Utilities" "YaST" "Pardus" ];
+      folder-children = [
+        "Utilities"
+        "YaST"
+        "Pardus"
+      ];
     };
 
     "org/gnome/desktop/app-folders/folders/Pardus" = {
@@ -21,7 +29,24 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = [ "gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.Loupe.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.tweaks.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" ];
+      apps = [
+        "gnome-abrt.desktop"
+        "gnome-system-log.desktop"
+        "nm-connection-editor.desktop"
+        "org.gnome.baobab.desktop"
+        "org.gnome.Connections.desktop"
+        "org.gnome.DejaDup.desktop"
+        "org.gnome.Dictionary.desktop"
+        "org.gnome.DiskUtility.desktop"
+        "org.gnome.Evince.desktop"
+        "org.gnome.FileRoller.desktop"
+        "org.gnome.fonts.desktop"
+        "org.gnome.Loupe.desktop"
+        "org.gnome.seahorse.Application.desktop"
+        "org.gnome.tweaks.desktop"
+        "org.gnome.Usage.desktop"
+        "vinagre.desktop"
+      ];
       categories = [ "X-GNOME-Utilities" ];
       name = "X-GNOME-Utilities.directory";
       translate = true;
@@ -34,7 +59,12 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/input-sources" = {
-      sources = [ (mkTuple [ "xkb" "se+us" ]) ];
+      sources = [
+        (mkTuple [
+          "xkb"
+          "se+us"
+        ])
+      ];
       xkb-options = [ "terminate:ctrl_alt_bksp" ];
     };
 
@@ -44,7 +74,10 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "brave-browser" "org-gnome-evolution-alarm-notify" ];
+      application-children = [
+        "brave-browser"
+        "org-gnome-evolution-alarm-notify"
+      ];
     };
 
     "org/gnome/desktop/notifications/application/brave-browser" = {
@@ -63,9 +96,10 @@ with lib.hm.gvariant;
       application-id = "gnome-power-panel.desktop";
     };
 
-    "org/gnome/desktop/notifications/application/jetbrains-rider-1beaeaa6-859a-41f1-a074-3321c6bac056" = {
-      application-id = "jetbrains-rider-1beaeaa6-859a-41f1-a074-3321c6bac056.desktop";
-    };
+    "org/gnome/desktop/notifications/application/jetbrains-rider-1beaeaa6-859a-41f1-a074-3321c6bac056" =
+      {
+        application-id = "jetbrains-rider-1beaeaa6-859a-41f1-a074-3321c6bac056.desktop";
+      };
 
     "org/gnome/desktop/notifications/application/org-gnome-clocks" = {
       application-id = "org.gnome.clocks.desktop";
@@ -127,7 +161,11 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/search-providers" = {
-      sort-order = [ "org.gnome.Contacts.desktop" "org.gnome.Documents.desktop" "org.gnome.Nautilus.desktop" ];
+      sort-order = [
+        "org.gnome.Contacts.desktop"
+        "org.gnome.Documents.desktop"
+        "org.gnome.Nautilus.desktop"
+      ];
     };
 
     "org/gnome/desktop/session" = {
@@ -162,7 +200,9 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      ];
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -172,8 +212,17 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
-      enabled-extensions = [ "blur-my-shell@aunetx" "gnome-ui-tune@itstime.tech" "appindicatorsupport@rgcjonas.gmail.com" "tailscale@joaophi.github.com" ];
-      favorite-apps = [ "Alacritty.desktop" "zen.desktop" "org.gnome.Nautilus.desktop" ];
+      enabled-extensions = [
+        "blur-my-shell@aunetx"
+        "gnome-ui-tune@itstime.tech"
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "tailscale@joaophi.github.com"
+      ];
+      favorite-apps = [
+        "Alacritty.desktop"
+        "zen.desktop"
+        "org.gnome.Nautilus.desktop"
+      ];
       last-selected-power-profile = "performance";
       welcome-dialog-last-shown-version = "46.2";
     };
@@ -206,7 +255,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/world-clocks" = {
-      locations = mkArray "v" [];
+      locations = mkArray "v" [ ];
     };
 
     "org/gnome/software" = {
@@ -229,7 +278,10 @@ with lib.hm.gvariant;
       sort-order = "ascending";
       type-format = "category";
       view-type = "list";
-      window-size = mkTuple [ 859 372 ];
+      window-size = mkTuple [
+        859
+        372
+      ];
     };
   };
 }

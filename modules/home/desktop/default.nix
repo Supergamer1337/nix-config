@@ -1,4 +1,10 @@
-{ config, osConfig, pkgs, lib, ... }:
+{
+  config,
+  osConfig,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -6,7 +12,7 @@
     ./hyprland
   ];
 
-  options = {};
+  options = { };
 
-  config = {};
+  config = { };
 }

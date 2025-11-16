@@ -1,7 +1,12 @@
-{ config, pkgs, lib, ...}:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  options = {};
+  options = { };
 
   config = {
     # Fonts

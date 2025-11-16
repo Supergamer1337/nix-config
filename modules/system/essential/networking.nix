@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options = {
@@ -11,9 +16,14 @@
       nameservers = {
         list = lib.mkOption {
           type = lib.types.listOf lib.types.str;
-          default = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.4.4.8" ];
+          default = [
+            "1.1.1.1"
+            "1.0.0.1"
+            "8.8.8.8"
+            "8.4.4.8"
+          ];
         };
-        
+
         enable = lib.mkEnableOption {
           default = false;
           description = "Enable custom DNS nameservers.";
@@ -39,7 +49,7 @@
     services.resolved = {
       enable = config.systemSettings.networking.resolved.enable;
       dnssec = "true"; # Use DNSSEC for security
-      dnsovertls = "true"; # Use DNS over TLS 
+      dnsovertls = "true"; # Use DNS over TLS
       fallbackDns = lib.mkIf (config.systemSettings.networking.nameservers.enable) config.systemSettings.networking.nameservers.list;
     };
   };

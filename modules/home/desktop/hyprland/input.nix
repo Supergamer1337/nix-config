@@ -1,8 +1,13 @@
-{ osConfig, lib, pkgs, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
 
-  options = {};
+  options = { };
 
   config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
     wayland.windowManager.hyprland.settings = {
@@ -13,7 +18,7 @@
         sensitivity = 0;
         accel_profile = "flat";
 
-	      numlock_by_default = true;
+        numlock_by_default = true;
 
         touchpad = {
           natural_scroll = true;

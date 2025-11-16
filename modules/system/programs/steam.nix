@@ -1,7 +1,12 @@
-{ config, pkgs, lib, ...}:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  options = {};
+  options = { };
 
   config = lib.mkIf (config.profiles.gaming.enable && !config.systemSettings.desktop.headless) {
     environment.systemPackages = with pkgs; [

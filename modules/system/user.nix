@@ -1,4 +1,10 @@
-{ config, pkgs, lib, inputs, ...}:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   options = {
@@ -38,7 +44,10 @@
       isNormalUser = true;
       description = config.userSettings.name;
       extraGroups = lib.mkMerge [
-        [ "networkmanager" "wheel" ] 
+        [
+          "networkmanager"
+          "wheel"
+        ]
       ];
     };
 
@@ -56,16 +65,27 @@
     ];
 
     home-manager = {
-      extraSpecialArgs = { inherit inputs pkgs; osConfig = config; };
-      users.${config.userSettings.username} = { config, osConfig, pkgs, lib, ...  } : {
-        home.username = osConfig.userSettings.username;
-        home.homeDirectory = "/home/" + osConfig.userSettings.username;
-
-        # Let Home Manager install and manage itself.
-        programs.home-manager.enable = true;
-
-        home.stateVersion = osConfig.home.initialStateVersion;
+      extraSpecialArgs = {
+        inherit inputs pkgs;
+        osConfig = config;
       };
+      users.${config.userSettings.username} =
+        {
+          config,
+          osConfig,
+          pkgs,
+          lib,
+          ...
+        }:
+        {
+          home.username = osConfig.userSettings.username;
+          home.homeDirectory = "/home/" + osConfig.userSettings.username;
+
+          # Let Home Manager install and manage itself.
+          programs.home-manager.enable = true;
+
+          home.stateVersion = osConfig.home.initialStateVersion;
+        };
     };
 
   };

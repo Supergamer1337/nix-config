@@ -1,8 +1,13 @@
-{ osConfig, lib, pkgs, ... }:
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
 
-  options = {};
+  options = { };
 
   config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
     wayland.windowManager.hyprland.settings = {
@@ -33,11 +38,11 @@
 
       animations = {
         enabled = true;
-        
+
         # Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more.
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
 
-        animation = [ 
+        animation = [
           "windows, 1, 7, myBezier"
           "windowsOut, 1, 7, default, popin 80%"
           "border, 1, 10, default"

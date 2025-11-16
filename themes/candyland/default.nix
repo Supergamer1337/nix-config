@@ -1,7 +1,12 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  options = {};
+  options = { };
 
   config = lib.mkIf (config.systemSettings.theme == "candyland") {
     stylix.image = ./candyland.png;

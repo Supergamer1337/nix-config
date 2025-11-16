@@ -1,4 +1,11 @@
-{ config, osConfig, pkgs, lib, inputs, ... }:
+{
+  config,
+  osConfig,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -8,7 +15,7 @@
     ../../themes/home.nix
   ];
 
-  options = {};
+  options = { };
 
-  config = {};
+  config = { };
 }

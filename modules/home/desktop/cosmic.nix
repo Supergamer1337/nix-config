@@ -1,10 +1,15 @@
-
-{ config, osConfig, pkgs, lib, ... }:
+{
+  config,
+  osConfig,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
   ];
 
-  options = {};
+  options = { };
 
   config = lib.mkIf (osConfig.systemSettings.desktop.cosimc.enable) {
     services.gnome-keyring = {

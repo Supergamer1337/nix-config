@@ -1,17 +1,22 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-	imports = [
+  imports = [
     ./catppuccin
-		./candyland
-	];
+    ./candyland
+  ];
 
   options = {
     systemSettings.theme = lib.mkOption {
-      type = lib.types.enum [ 
+      type = lib.types.enum [
         "catppuccin"
         "candyland"
-        "none" 
+        "none"
       ];
       default = "none";
       description = "The theme to use.";
@@ -77,7 +82,7 @@
     };
     stylix.fonts = lib.mkDefault {
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono; 
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font Mono";
       };
 

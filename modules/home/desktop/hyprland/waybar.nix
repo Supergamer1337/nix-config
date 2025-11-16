@@ -1,10 +1,15 @@
-{ osConfig, pkgs, lib, ... }:
+{
+  osConfig,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
 
-  options = {};
+  options = { };
 
-  config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {  
+  config = lib.mkIf (osConfig.systemSettings.desktop.hyprland.enable) {
     stylix.targets.waybar.enable = false;
 
     programs.waybar = {
@@ -36,7 +41,8 @@
           modules-right = [
             "tray"
             "custom/notifications"
-          ] ++ lib.optionals (osConfig.systemSettings.hardware.laptop.enable) [
+          ]
+          ++ lib.optionals (osConfig.systemSettings.hardware.laptop.enable) [
             "battery"
           ];
 
@@ -83,115 +89,117 @@
         };
       };
 
-      style = let
-        colors = osConfig.lib.stylix.colors;
+      style =
+        let
+          colors = osConfig.lib.stylix.colors;
 
-        text = "#${colors.base05}";
-        altText = "#${colors.base04}";
+          text = "#${colors.base05}";
+          altText = "#${colors.base04}";
 
-        background = "#${colors.base00}";
-        altBackground = "#${colors.base01}";
+          background = "#${colors.base00}";
+          altBackground = "#${colors.base01}";
 
-        selection = "#${colors.base02}";
+          selection = "#${colors.base02}";
 
-        # Highlights
-        highlight1 = "#${colors.base0D}";
-        highlight2 = "#${colors.base0E}";
-      in ''
-        * {
-          font-family: JetBrainsMono Nerd Font;
-          font-size: 13px;
-          min-height: 0;
-        }
+          # Highlights
+          highlight1 = "#${colors.base0D}";
+          highlight2 = "#${colors.base0E}";
+        in
+        ''
+          * {
+            font-family: JetBrainsMono Nerd Font;
+            font-size: 13px;
+            min-height: 0;
+          }
 
-        #waybar {
-          background: transparent;
-          color: ${text};
-        }
+          #waybar {
+            background: transparent;
+            color: ${text};
+          }
 
-        #window,
-        #clock,
-        #tray,
-        #custom-notifications,
-        #battery {
-          background-color: ${background};
-          padding: 0.5rem 0.75rem;
-          margin: 5px 0;
-        }
+          #window,
+          #clock,
+          #tray,
+          #custom-notifications,
+          #battery {
+            background-color: ${background};
+            padding: 0.5rem 0.75rem;
+            margin: 5px 0;
+          }
 
-        /* --- Left Modules --- */
-        #workspaces {
-          border-radius: 1rem 0 0 1rem;
+          /* --- Left Modules --- */
+          #workspaces {
+            border-radius: 1rem 0 0 1rem;
 
-          margin: 5px 0 5px 5px;
-          padding-left: 0.3rem;
-          background-color: ${background};
-        }
+            margin: 5px 0 5px 5px;
+            padding-left: 0.3rem;
+            background-color: ${background};
+          }
 
-        #workspaces button {
-          color: ${highlight2};
-          background-color: transparent;
-          border-radius: 2rem;
-          padding: 0.25rem;
-          margin: 0.3rem 0;
+          #workspaces button {
+            color: ${highlight2};
+            background-color: transparent;
+            border-radius: 2rem;
+            padding: 0.25rem;
+            margin: 0.3rem 0;
 
-          transition: color 0.5s, background-color 0.5s;
-        }
+            transition: color 0.5s, background-color 0.5s;
+          }
 
-        #workspaces button.empty {
-          color: ${altText};
-        }
+          #workspaces button.empty {
+            color: ${altText};
+          }
 
-        #workspaces button.active {
-          color: ${highlight1};
-          background-color: ${altBackground};
-        }
+          #workspaces button.active {
+            color: ${highlight1};
+            background-color: ${altBackground};
+          }
 
-        #workspaces button:hover {
-          color: ${text};
-          background-color: ${selection};
-        }
+          #workspaces button:hover {
+            color: ${text};
+            background-color: ${selection};
+          }
 
-        #window {
-          border-radius: 0 1rem 1rem 0;
-          background-color: ${background};
-          margin-right: 1rem;
-        }
+          #window {
+            border-radius: 0 1rem 1rem 0;
+            background-color: ${background};
+            margin-right: 1rem;
+          }
 
-        /* --- Center Modules --- */
-        #clock {
-          border-radius: 1rem;
-          color: ${highlight1}; 
-        }
+          /* --- Center Modules --- */
+          #clock {
+            border-radius: 1rem;
+            color: ${highlight1}; 
+          }
 
-        /* --- Right Modules --- */
-        #tray {
-          border-radius: 1rem;
-          margin: 5px 5px 5px 0;
-        }
+          /* --- Right Modules --- */
+          #tray {
+            border-radius: 1rem;
+            margin: 5px 5px 5px 0;
+          }
 
-        #custom-notifications {
-          border-radius: 1rem;
-          margin: 5px 5px 5px 0;
-        }
-        
-        #battery {
-          border-radius: 1rem;
-          margin: 5px 5px 5px 0;
-        }
+          #custom-notifications {
+            border-radius: 1rem;
+            margin: 5px 5px 5px 0;
+          }
 
-        #battery.charging {
-          color: green; 
-        }
+          #battery {
+            border-radius: 1rem;
+            margin: 5px 5px 5px 0;
+          }
 
-        #battery.warning {
-          color: orange; 
-        }
+          #battery.charging {
+            color: green; 
+          }
 
-        #battery.critical {
-          color: red; 
-        }
-      '';
+          #battery.warning {
+            color: orange; 
+          }
+
+          #battery.critical {
+            color: red; 
+          }
+        '';
     };
   };
 

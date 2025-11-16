@@ -4,19 +4,25 @@
 # with the actual values
 
 # It can be used as it is right now, but it's recommended to use the setup script
-{ config, lib, pkgs, inputs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules/system
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../modules/system
+  ];
 
   systemSettings = {
-    name = "%MACHINE_NAME%"; 
+    name = "%MACHINE_NAME%";
     theme = "None";
-    
+
     # desktop.hyprland.enable = true;
 
     # hardware = {

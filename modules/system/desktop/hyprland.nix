@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
 
@@ -13,7 +18,7 @@
 
       workspaces = lib.mkOption {
         default = [ ];
-	      description = "Configure workspaces for Hyprland";
+        description = "Configure workspaces for Hyprland";
       };
 
     };
@@ -32,7 +37,7 @@
     };
 
     environment.systemPackages = with pkgs; [
-    	hyprpaper
+      hyprpaper
       hyprlock
       hypridle
       hyprpolkitagent
@@ -44,7 +49,7 @@
       wofi
       swaynotificationcenter
       waybar
-      
+
       # Utilities
       nautilus
       wl-clipboard
@@ -56,7 +61,7 @@
     ];
 
     # Enable pam module for hyprlock
-    security.pam.services.hyprlock = {};
+    security.pam.services.hyprlock = { };
 
     # Fix for keyring
     services.gnome.gnome-keyring.enable = true;

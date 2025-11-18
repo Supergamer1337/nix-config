@@ -10,6 +10,7 @@
     ./sound.nix
     ./docker.nix
     ./tailscale.nix
+    ./zram-swap.nix
   ];
 
   options = { };

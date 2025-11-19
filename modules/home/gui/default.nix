@@ -32,6 +32,9 @@
           obsidian
           ticktick
           nextcloud-client
+          gnome-disk-utility
+
+          unstable.zoom-us
         ]
 
         # Work profile

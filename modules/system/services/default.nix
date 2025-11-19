@@ -11,6 +11,7 @@
     ./docker.nix
     ./tailscale.nix
     ./zram-swap.nix
+    ./ssh.nix
   ];
 
   options = { };

@@ -7,67 +7,38 @@
       system = "x86_64-linux";
       lib = nixpkgs.lib;
 
-      # To remove duplication between configurations
-      specialArgs = {
-        inherit lib;
-        inherit inputs;
-      };
+      # Find relevant host names by checking for existing configuration.nix files
+      # in the hosts/ directory.
+      hostNames = builtins.filter (name: builtins.pathExists ./hosts/${name}/configuration.nix) (
+        builtins.attrNames (builtins.readDir ./hosts)
+      );
 
-      commonModules = [
-        inputs.home-manager.nixosModules.home-manager
-        inputs.stylix.nixosModules.stylix
-        inputs.nur.modules.nixos.default
-      ];
+      # Modules to use for a given host, with host-specific extras.
+      modulesForHost =
+        host:
+        lib.concatLists [
+          (if host == "nix-wsl" && inputs ? wsl then [ inputs.wsl.nixosModules.default ] else [ ])
 
+          # Common modules
+          [
+            inputs.home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
+            inputs.nur.modules.nixos.default
+          ]
+
+          # Host-specific configuration
+          [ ./hosts/${host}/configuration.nix ]
+        ];
     in
     {
-      nixosConfigurations = {
-        roctim-nix = lib.nixosSystem {
+      nixosConfigurations = lib.genAttrs hostNames (
+        host:
+        lib.nixosSystem {
           inherit system;
-          inherit specialArgs;
-          modules = [
-            ./hosts/roctim-nix/configuration.nix
-          ]
-          ++ commonModules;
-        };
-
-        SuperNix1337 = lib.nixosSystem {
-          inherit system;
-          inherit specialArgs;
-          modules = [
-            ./hosts/SuperNix1337/configuration.nix
-          ]
-          ++ commonModules;
-        };
-
-        nix-wsl = lib.nixosSystem {
-          inherit system;
-          inherit specialArgs;
-          modules = [
-            inputs.wsl.nixosModules.default
-            ./hosts/nix-wsl/configuration.nix
-          ]
-          ++ commonModules;
-        };
-
-        tapo-nix = lib.nixosSystem {
-          inherit system;
-          inherit specialArgs;
-          modules = [
-            ./hosts/tapo-nix/configuration.nix
-          ]
-          ++ commonModules;
-        };
-
-        TEMPLATE = lib.nixosSystem {
-          inherit system;
-          inherit specialArgs;
-          modules = [
-            ./hosts/TEMPLATE/configuration.nix
-          ]
-          ++ commonModules;
-        };
-      };
+          specialArgs = { inherit lib inputs; };
+          modules = modulesForHost host;
+        }
+      );
 
       homeManagerModules.default = import ./modules/home;
     };

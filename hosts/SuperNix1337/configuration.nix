@@ -25,34 +25,6 @@
 
     desktop.cosmic.enable = true;
 
-    desktop.hyprland = {
-      enable = false;
-
-      monitors = [
-        "DP-3, 2560x1440@120, 1920x0, 1"
-        "DP-1, 1920x1080@120, 4480x144, 1"
-        "DVI-D-1, 1920x1080@120, 0x720, 1"
-      ];
-
-      workspaces = [
-        ### MAIN MONITOR ###
-        "1,monitor:DP-3,persistent:true,default:true"
-        "2,monitor:DP-3,persistent:true"
-        "3,monitor:DP-3,persistent:true"
-        "4,monitor:DP-3,persistent:true"
-        "5,monitor:DP-3,persistent:true"
-        "6,monitor:DP-3,persistent:true"
-
-        ### RIGHT MONITOR ###
-        "7,monitor:DP-1,persistent:true,default:true"
-        "8,monitor:DP-1,persistent:true"
-
-        ### LEFT MONITOR ###
-        "9,monitor:DVI-D-1,persistent:true,default:true"
-        "10,monitor:DVI-D-1,persistent:true"
-      ];
-    };
-
     dualBoot.enable = true;
 
     hardware = {
